@@ -16,7 +16,7 @@
     <h1 class="titulo">GOKAI ASIAN FOOD</h1>
   </div>
 
-  <a class="boton-completo" href="{{ route('login') }}">
+  <a class="boton-completo" href="{{ route('login.form') }}">
     <span class="texto-boton">Explora, Ordena y Disfruta.</span>
     <button class="boton-go">GO</button>
   </a>

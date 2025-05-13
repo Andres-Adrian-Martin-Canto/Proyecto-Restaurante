@@ -19,12 +19,13 @@
             <div class="login-title">
                 <h2>LOGIN</h2>
             </div>
-            <form>
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
                 <label for="email">Correo electrónico<span>*</span></label>
-                <input type="email" id="email" placeholder="administrador@ejemplo.com" required />
+                <input type="email" name="email" id="email" placeholder="administrador@ejemplo.com" required />
 
                 <label for="password">Contraseña<span>*</span></label>
-                <input type="password" id="password" placeholder="***************" required />
+                <input type="password" name="password" id="password" placeholder="***************" required />
 
                 <button type="submit">Iniciar sesión</button>
             </form>
