@@ -37,7 +37,6 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
-
 // * RUTAS COCINA
 
 // * RUTAS JEFE COCINA

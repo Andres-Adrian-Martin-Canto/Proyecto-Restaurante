@@ -23,18 +23,17 @@
             <p>¡No hay problema! Puede crearse una cuenta ahora mismo y enterarse de todo lo que tenemos para usted</p>
             <a href="register.html">Crear cuenta</a>
         </div>
-        <form action="" class="formDer">
+        <form action="POST" action="{{ route("login") }}" class="formDer">
+            @csrf
             <h2>Inicie sesión con su cuenta</h2>
-
-        
             <div class="campos">
                 <div>
-                    <label for="correo">E-Mail</label>
-                    <input type="email" id="correo" name="correo" placeholder="Escribe tu correo" required>
+                    <label for="email">E-Mail</label>
+                    <input type="email" id="email" name="email" placeholder="Escribe tu correo" required>
                 </div>
                 <div>
-                    <label for="contraseña">Contraseña</label>
-                    <input type="password" id="contraseña" name="contraseña" placeholder="Escribe tu contraseña" required>
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="Escribe tu contraseña" required>
                 </div>
             </div>
         

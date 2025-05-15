@@ -31,7 +31,7 @@
                 <h1>Gokai Asian Food</h1>
                 <div class="loginContainer">
                     <div>Explora, ordena, disfruta</div>
-                    <a href="{{ route('login') }}">Ingresar</a>
+                    <a href="{{ route('login.form') }}">Ingresar</a>
                 </div>
 
                 <a href="https://maps.app.goo.gl/gGhN8xq1VsfFEcTs8" target="_blank" class="locationContainer">
