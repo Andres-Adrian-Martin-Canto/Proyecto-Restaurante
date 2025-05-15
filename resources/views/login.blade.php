@@ -1,35 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Titulo--------------------------------------------------------------------------------------------------------------------->
-    <title>Login Gokai</title>
+    <title>Iniciar Sesión</title>
     <!--Css------------------------------------------------------------------------------------------------------------------------>
-    @vite(['resources/css/login.css', 'resources/js/login.js'])
+    @vite(['resources/css/forms.css'])
+    @vite(['resources/css/global.css'])
     <!--Favicon-------------------------------------------------------------------------------------------------------------------->
-    <link rel="icon" href="{{ asset('Favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('Imagenes/icono.png') }}" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <h1 class="titulo">GOKAI ASIAN FOOD</h1>
-    <div class="login-wrapper">
-        <div class="login-card">
-            <div class="login-title">
-                <h2>LOGIN</h2>
-            </div>
-            <form>
-                <label for="email">Correo electrónico<span>*</span></label>
-                <input type="email" id="email" placeholder="administrador@ejemplo.com" required />
-
-                <label for="password">Contraseña<span>*</span></label>
-                <input type="password" id="password" placeholder="***************" required />
-
-                <button type="submit">Iniciar sesión</button>
-            </form>
+    
+    <div class="form">
+        <div class="formIz">
+            <h2>¿No tiene una cuenta?</h2>
+            <p>¡No hay problema! Puede crearse una cuenta ahora mismo y enterarse de todo lo que tenemos para usted</p>
+            <a href="register.html">Crear cuenta</a>
         </div>
-    </div>
-</body>
+        <form action="" class="formDer">
+            <h2>Inicie sesión con su cuenta</h2>
 
+        
+            <div class="campos">
+                <div>
+                    <label for="correo">E-Mail</label>
+                    <input type="email" id="correo" name="correo" placeholder="Escribe tu correo" required>
+                </div>
+                <div>
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" id="contraseña" name="contraseña" placeholder="Escribe tu contraseña" required>
+                </div>
+            </div>
+        
+            <div class="check">
+                    <a href="#" target="_blank" rel="noopener noreferrer">¿Olvidaste tu contraseña?</a>
+            </div>
+        
+            <input type="submit" value="Iniciar sesión" class="btnAccount">
+        </form>
+        
+
+    </div>
+
+    <p class="black">© Gokai Asian Food. All rights reserved | Design by<img src="{{ asset('Imagenes/BlackWaterLogo.png') }}" alt=""></p>
+</body>
 </html>

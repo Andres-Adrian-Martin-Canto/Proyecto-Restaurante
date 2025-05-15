@@ -1,0 +1,360 @@
+/* ========== GLOBAL ========== */
+main
+{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.izq, .center, .der
+{
+    margin: 0;
+    height: 100%;
+}
+
+  /* ==========     IZQUIERDA    ========== */
+.izq
+{
+    width: 20%;
+    padding: 2rem 1.5rem;
+    background-color: #70cc99;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.icon
+{
+    width: 75%;
+    height: 32%;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.icon img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.izq p
+{
+    margin-top: 0.5rem;
+    text-align: center;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.boton
+{
+    margin-top: 1rem;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff;
+    border: 5px solid transparent;
+    border-radius: 13px;
+    text-decoration: none;
+    transition: border 0.2s ease-in-out;
+}
+
+.boton:hover
+{
+    border-color: #5b8870;
+}
+
+.boton p
+{
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #555658;
+}
+
+.boton img
+{
+    width: 2.5rem;
+    object-fit: cover;
+}
+
+  /* ==========     CENTRO     ========== */
+.center
+{
+    width: 57%;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.cell{
+    position: relative;
+    background-color: #a4c3b2;
+    color: #fff;
+    font-weight: bold;
+    font-size: 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.cell:hover
+{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.cell::before
+{
+    content: "Añadir";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.cell:hover::before
+{
+    opacity: 1;
+}
+
+.cell .cell-bg
+{
+    width: 100%;
+    height: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Celda con imágenes dinámicas */
+.cell:nth-of-type(1) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/sushi.jpg"); }
+.cell:nth-of-type(2) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/gyoza.jpg"); }
+.cell:nth-of-type(3) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/ramen.jpg"); }
+.cell:nth-of-type(4) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/udon.jpg"); }
+.cell:nth-of-type(5) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/tonkatsu.jpg"); }
+.cell:nth-of-type(6) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/takoyaki.jpg"); }
+.cell:nth-of-type(7) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/teriyaki.jpg"); }
+.cell:nth-of-type(8) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/tempura.jpg"); }
+.cell:nth-of-type(9) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/omurice.jpg"); }
+
+.cell-content
+{
+    width: 100%;
+    height: 50%;
+    padding: 10px;
+    text-align: center;
+}
+
+.cell-content h3
+{
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 1px 1px 1px #294435;
+}
+
+.cell-content p
+{
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #3b5044;
+}
+
+  /* ==========     DERECHA     ========== */
+.der
+{
+    width: 23%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #3b5044;
+}
+
+.der h3
+{
+    margin: 2rem 0;
+    padding: 1rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.order
+{
+    width: 90%;
+    padding: 13px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #a4c3b2;
+    border-radius: 13px;
+    text-decoration: none;
+}
+
+.order p
+{
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #3b5044;
+}
+
+.order img
+{
+    width: 2.3rem;
+}
+
+/* Lista de órdenes */
+.order-list
+{
+    width: 90%;
+    max-width: 500px;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.order-item
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #a4c3b2;
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
+}
+
+/* Sub-bloque info */
+.info
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.info p
+{
+    margin: 0;
+    font-weight: bold;
+}
+
+.info div
+{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info button
+{
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.info button:first-of-type{background-color: #e63946;}
+.info button:first-of-type:hover{background-color: #a31f2c;}
+.info button:nth-of-type(2){background-color: #2ecc71;}
+.info button:nth-of-type(2):hover{background-color: #1c7a43;}
+
+.info span
+{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.price
+{
+    margin: 0 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.delete
+{
+    display: flex;
+    background-color: #dcd6b9;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.delete:hover
+{
+    background-color: #d5c7a5;
+}
+
+.delete img
+{
+    width: 2rem;
+}
+
+/* Total */
+.total
+{
+    width: 90%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total p
+{
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #3b5044;
+}
+
+/* Botón de pago */
+.checkout
+{
+    width: 90%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #fff;
+    background-color: #70cc99;
+    border: none;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.checkout:hover
+{
+    background-color: #559a74;
+    cursor: pointer;
+}  

@@ -1,0 +1,187 @@
+/* Layout principal */
+main
+{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 100vh;
+    background-color: grey;
+}
+
+/* Imagen de plato flotante */
+main .plato
+{
+    width: 40vw;
+    position: absolute;
+    z-index: 100;
+}
+
+/* Contenedor de video */
+.videoContainer
+{
+    position: relative;
+    width: 80%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.videoContainer::before
+{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.backgroundVideo
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 101%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Contenido sobre el video */
+.content
+{
+    position: relative;
+    z-index: 1;
+    color: white;
+    padding: 5rem;
+    width: 85%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.content h1
+{
+    font-size: clamp(1.2rem, 5.5vw, 7rem);;
+    font-family: "Kaisei Decol", serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #dffff7;
+    margin-bottom: 1rem;
+    text-shadow: 5px 5px 5px #000;
+}
+
+/* Panel izquierdo (si aplica) */
+.leftContainer
+{
+    background-color: #a4c3b2;
+    width: 20%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.leftContainer div
+{
+    margin: 1rem;
+    opacity: 0.5;
+}
+
+.leftContainer div p
+{
+    font-size: clamp(0.9rem, 0.9vw, 1.5rem);;
+    font-style: normal;
+    color: #000;
+    display: flex;
+    margin: 0;
+    align-items: center;
+}
+
+.leftContainer div img
+{
+    width: 13rem;
+    max-width: 165px;
+    margin-left: 0.5rem;
+}
+
+/* Estilo base compartido por contenedores interactivos */
+.loginContainer,
+.locationContainer
+{
+    display: flex;
+    width: 60%;
+    height: 10vh;
+    align-items: center;
+    border-radius: 1rem;
+    border: 3px solid #a4c3b2;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: clamp(1.2rem, 1.7vw, 2rem);;
+    font-weight: 500;
+}
+
+/* Login container específico */
+.loginContainer div
+{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    border-right: 3px solid #a4c3b2;
+}
+
+.loginContainer a
+{
+    background-color: transparent;
+    text-decoration: none;
+    color: #a4c3b2;
+    transition: all ease 0.3s;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    font-weight: 600;
+}
+
+.loginContainer a:hover
+{
+    background-color: #a4c3b2;
+    color: #555658;
+    cursor: pointer;
+}
+
+/* Ubicación (Google Maps) */
+.locationContainer
+{
+    justify-content: center;
+    gap: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #a4c3b2;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: transparent;
+    margin-top: auto; /* Clave para anclar al fondo */
+}
+
+.locationContainer:hover
+{
+    background-color: #a4c3b2;
+    color: #555658;
+    cursor: pointer;
+}
+
+.locationContainer img
+{
+    width: 1.7vw;
+}
+
+.locationContainer:hover img
+{
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
