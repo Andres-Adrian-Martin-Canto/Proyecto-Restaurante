@@ -1,12 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <!--Titulo--------------------------------------------------------------------------------------------------------------------->
+    <title>Registrese</title>
+    <!--Css------------------------------------------------------------------------------------------------------------------------>
+    @vite(['resources/css/forms.css'])
+    @vite(['resources/css/global.css'])
+    <!--Favicon-------------------------------------------------------------------------------------------------------------------->
+    <link rel="icon" href="{{ asset('Imagenes/icono.png') }}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <h1>Registro</h1>
+
+    <div class="form">
+        <div class="formIz">
+            <h2>¡Bienvenido de vuelta!</h2>
+            <p>Para estar atento a todo lo que tenemos para ti y seguir disfrutando de nuestros panes, inicia sesión con
+                tu cuenta</p>
+            <a href="{{ route('login.form') }}">Iniciar sesión</a>
+        </div>
+        <form action="" class="formDer">
+            <h2>Crea una cuenta si no tienes una</h2>
+
+            <div class="campos">
+                <div>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre"
+                        pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+" required>
+                </div>
+                <div>
+                    <label for="correo">E-Mail</label>
+                    <input type="email" id="correo" name="correo" placeholder="Escribe tu correo" required>
+
+                </div>
+            </div>
+
+            <div class="campos">
+                <div>
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" id="contraseña" name="contraseña" placeholder="Escribe tu contraseña"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                </div>
+                <div>
+                    <label for="confirmar">Confirmar Contraseña</label>
+                    <input type="password" id="confirmar" name="confirmar" placeholder="Confirma tu contraseña"
+                        required>
+                </div>
+            </div>
+
+            <div class="campos">
+                <div>
+                    <label for="direccion">Dirección</label>
+                    <input type="text" id="direccion" name="direccion" placeholder="Escribe tu dirección" required>
+                </div>
+                <div>
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Escribe tu teléfono"
+                        pattern="[0-9]{10}" required>
+                </div>
+            </div>
+
+
+
+            <div class="check">
+                <input type="checkbox" id="checkB" required>
+                <label for="checkB">Estoy de acuerdo con los
+                    <a href="terms.html" target="_blank" rel="noopener noreferrer">términos y condiciones</a>
+                </label>
+            </div>
+
+            <input type="submit" value="Crear cuenta" class="btnAccount">
+        </form>
+    </div>
+
+    <p class="black">© Gokai Asian Food. All rights reserved | Design by <img src="{{ asset('Imagenes/BlackWaterLogo.png') }}" alt=""></p>
 </body>
+
 </html>
