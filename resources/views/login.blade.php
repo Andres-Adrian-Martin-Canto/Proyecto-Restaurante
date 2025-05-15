@@ -44,8 +44,7 @@
         
             <input type="submit" value="Iniciar sesión" class="btnAccount">
         </form>
-        
-
+        </div>
     </div>
 
     <p class="black">© Gokai Asian Food. All rights reserved | Design by<img src="{{ asset('Imagenes/BlackWaterLogo.png') }}" alt=""></p>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +20,28 @@ Route::get('/', function () {
 
 Route::get('/login', function () {
     return view('login');
-})->name('login');
+})->name('login.form');
+
+Route::post('/login', [AuthController::class, 'login'])
+    ->name('login');
+
+// TODO: rutas de los roles
+
+// * RUTAS ADMINISTADOR
+Route::middleware(['auth'])->group(function () {
+    // * DASHBOARD ADMINISTRADOR
+    Route::get('/admin', function () {
+        return view('admin.admin');
+    })->name('admin');
+    // * Poner las demas rutas de administrador aquí
+
+});
+
+
+// * RUTAS COCINA
+
+// * RUTAS JEFE COCINA
+
+// * RUTAS MESERO
+
+// * RUTAS CLIENTE
