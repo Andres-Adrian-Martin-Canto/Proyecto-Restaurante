@@ -16,14 +16,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+
     <div class="form">
         <div class="formIz">
             <h2>¿No tiene una cuenta?</h2>
             <p>¡No hay problema! Puede crearse una cuenta ahora mismo y enterarse de todo lo que tenemos para usted</p>
             <a href="register.html">Crear cuenta</a>
         </div>
-        <form action="POST" action="{{ route("login") }}" class="formDer">
+        <form method="POST" action="{{ route('login') }}" class="formDer">
             @csrf
             <h2>Inicie sesión con su cuenta</h2>
             <div class="campos">
@@ -36,11 +36,11 @@
                     <input type="password" id="password" name="password" placeholder="Escribe tu contraseña" required>
                 </div>
             </div>
-        
+
             <div class="check">
                     <a href="#" target="_blank" rel="noopener noreferrer">¿Olvidaste tu contraseña?</a>
             </div>
-        
+
             <input type="submit" value="Iniciar sesión" class="btnAccount">
         </form>
         </div>
