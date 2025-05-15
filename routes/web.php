@@ -25,6 +25,10 @@ Route::get('/login', function () {
 Route::post('/login', [AuthController::class, 'login'])
     ->name('login');
 
+Route::get('/registrar', function () {
+    return view('register');
+})->name('register.form');
+
 // TODO: rutas de los roles
 
 // * RUTAS ADMINISTADOR

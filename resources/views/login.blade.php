@@ -21,7 +21,7 @@
         <div class="formIz">
             <h2>¿No tiene una cuenta?</h2>
             <p>¡No hay problema! Puede crearse una cuenta ahora mismo y enterarse de todo lo que tenemos para usted</p>
-            <a href="register.html">Crear cuenta</a>
+            <a href="{{ route('register.form') }}">Crear cuenta</a>
         </div>
         <form method="POST" action="{{ route('login') }}" class="formDer">
             @csrf
