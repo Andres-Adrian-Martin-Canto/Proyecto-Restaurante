@@ -35,21 +35,40 @@ Route::post('/registrar', [AuthController::class, 'registrar'])->name('register'
 
 // * RUTAS ADMINISTADOR
 Route::middleware(['auth'])->group(function () {
-    // * DASHBOARD ADMINISTRADOR
-    Route::get('/admin', function () {
-        return view('admin.admin');
-    })->name('admin');
-    
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    // * RUTAS CLIENTE
+    Route::middleware(['iscliente'])->prefix('cliente')->group(function () {
+        // * ruta raiz
+        Route::get('/', function ()  {
+            return view('client.cliente');
+        })->name('cliente');
+        // * Agregar las de mas rutas del cliente
 
 
-});
+    });
 
-// * RUTAS COCINA
+    // * Rutas ADMIN
+    Route::middleware(['isadmin'])->prefix('admin')->group(function () {
+        // * ruta raiz
+        Route::get('/', function () {
+            return view('admin.admin');
+        })->name('admin');
+        // * Agregar las demas rutas del admin
+
+
+    });
+
+
+    // * RUTAS COCINA
 
 // * RUTAS JEFE COCINA
 
 // * RUTAS MESERO
 
-// * RUTAS CLIENTE
 
+
+
+
+    // * Ruta para deslogearse
+    // !! NO MOVER NI HACER NADA CON ESTA RUTA
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
