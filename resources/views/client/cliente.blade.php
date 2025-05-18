@@ -33,16 +33,15 @@
                     <p>Cerrar sesión</p>
                 </button>
             </form>
-
-            <a href="" class="boton">
+            <a href="{{ route('cliente.reservaciones') }}" class="boton">
                 <img src="{{ asset('Imagenes/Cliente/reservation.png') }}" alt="">
                 <p>Reservaciones</p>
             </a>
-            <a href="" class="boton">
+            <a href="{{ route('cliente.pedidos') }}" class="boton">
                 <img src="{{ asset('Imagenes/Cliente/delivery.png') }}" alt="">
                 <p>Pedidos</p>
             </a>
-            
+
         </section>
         <section class="center">
             <div class="cell">

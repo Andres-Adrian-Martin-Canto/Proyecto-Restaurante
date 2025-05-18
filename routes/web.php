@@ -35,10 +35,9 @@ Route::post('/registrar', [AuthController::class, 'registrar'])->name('register'
 
 // * RUTAS ADMINISTADOR
 Route::middleware(['auth'])->group(function () {
-    // * RUTAS CLIENTE
     Route::middleware(['iscliente'])->prefix('cliente')->group(function () {
         // * ruta raiz
-        Route::get('/', function ()  {
+        Route::get('/', function () {
             return view('client.cliente');
         })->name('cliente');
         // * Agregar las de mas rutas del cliente
@@ -57,12 +56,22 @@ Route::middleware(['auth'])->group(function () {
 
     });
 
+    // * RUTAS CLIENTE
+    Route::get('/cliente/reservaciones', function () {
+        return view('client.reservaciones');
+    })->name('cliente.reservaciones');
+
+    Route::get('/cliente/pedidos', function () {
+        return view('client.pedidos'); 
+    })->name('cliente.pedidos');
+
+
 
     // * RUTAS COCINA
 
-// * RUTAS JEFE COCINA
+    // * RUTAS JEFE COCINA
 
-// * RUTAS MESERO
+    // * RUTAS MESERO
 
 
 
