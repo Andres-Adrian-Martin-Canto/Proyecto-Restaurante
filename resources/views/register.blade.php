@@ -19,6 +19,39 @@
 </head>
 
 <body>
+    @error('correo')
+        <style>
+            .alert {
+                padding: 20px;
+                background-color: #f44336;
+                color: white;
+                margin-bottom: 15px;
+                border-radius: 5px;
+                position: relative;
+                font-family: 'Montserrat', Arial, sans-serif;
+            }
+
+            .alert .closebtn {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                color: white;
+                font-size: 22px;
+                font-weight: bold;
+                cursor: pointer;
+                line-height: 20px;
+                transition: 0.3s;
+            }
+
+            .alert .closebtn:hover {
+                color: #000;
+            }
+        </style>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Error!</strong> {{ $message }}
+        </div>
+    @enderror
     <div class="form">
         <div class="formIz">
             <h2>¡Bienvenido de vuelta!</h2>

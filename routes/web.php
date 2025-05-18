@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,10 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () {
+    // * No entrara al formulario de login si ya esta logueado
+    if (Auth::check()) {
+        return redirect()->back();
+    }
     return view('login');
 })->name('login.form');
 
@@ -28,6 +33,9 @@ Route::post('/login', [AuthController::class, 'login'])
 Route::get('/registrar', function () {
     return view('register');
 })->name('register.form');
+
+Route::post('/registrar', [AuthController::class, 'registrar'])->name('register');
+
 
 // TODO: rutas de los roles
 
@@ -49,8 +57,3 @@ Route::middleware(['auth'])->group(function () {
 
 // * RUTAS CLIENTE
 
-Route::get('/registrar', function () {
-    return view('register');
-})->name('register.form');
-
-Route::post('/registrar', [AuthController::class, 'registrar'])->name('register');

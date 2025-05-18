@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -54,7 +55,7 @@ class AuthController extends Controller
 
     public function registrar(Request $request)
     {
-        Log::info('Entrando a registrar');
+
         // Valida los datos del formulario
         $request->validate([
             'nombre' => 'required|string|max:255',
@@ -64,9 +65,9 @@ class AuthController extends Controller
             'telefono' => 'required|digits:10',
             'edad' => 'required|integer|min:1|max:120',
             'sexo' => 'required|in:Masculino,Femenino,Otro',
-        ],[
-            'correo.required'=>'el correo es obligatorio',
-            'correo.unique'=>'este correo ya esta registrado',
+        ], [
+            'correo.required' => 'el correo es obligatorio',
+            'correo.unique' => 'este correo ya esta registrado',
         ]);
 
 
@@ -76,11 +77,11 @@ class AuthController extends Controller
             'email'    => $request->correo,
             'password' => Hash::make($request->contraseña),
             'telefono' => $request->telefono,
-            'id_roles' => 1, 
+            'id_roles' => 1,
         ]);
 
         // Crea el cliente
-        \App\Models\Cliente::create([
+        Cliente::create([
             'user_id'   => $user->id,
             'direccion' => $request->direccion,
             'edad'      => $request->edad,
