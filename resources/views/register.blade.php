@@ -9,6 +9,7 @@
     <!--Css------------------------------------------------------------------------------------------------------------------------>
     @vite(['resources/css/forms.css'])
     @vite(['resources/css/global.css'])
+    @vite(['resources/css/alert.css'])
     <!--Favicon-------------------------------------------------------------------------------------------------------------------->
     <link rel="icon" href="{{ asset('Imagenes/icono.png') }}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,40 +20,17 @@
 </head>
 
 <body>
-    @error('correo')
-        <style>
-            .alert {
-                padding: 20px;
-                background-color: #FE1A00 ;
-                border: 2px solid #D83526;
-                color: #fafafa;
-                margin-bottom: 15px;
-                border-radius: 5px;
-                position: relative;
-                font-family: 'Montserrat', Arial, sans-serif;
-            }
-
-            .alert .closebtn {
-                position: absolute;
-                top: 10px;
-                right: 15px;
-                color: #fafafa;
-                font-size: 22px;
-                font-weight: bold;
-                cursor: pointer;
-                line-height: 20px;
-                transition: 0.3s;
-            }
-
-            .alert .closebtn:hover {
-                color: #000;
-            }
-        </style>
+    @if ($errors->any())
         <div class="alert">
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            <strong>Error!</strong> {{ $message }}
+            <strong>Error!</strong>
+            <ul style="margin:0; padding-left:20px;">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
-    @enderror
+    @endif
     <div class="form">
         <div class="formIz">
             <h2>¡Bienvenido de vuelta!</h2>

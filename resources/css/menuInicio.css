@@ -54,6 +54,7 @@ main
     margin-top: 1rem;
     padding: 10px;
     width: 100%;
+    min-width: 16.5rem;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -147,15 +148,16 @@ main
 }
 
 /* Celda con imágenes dinámicas */
-.cell:nth-of-type(1) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/sushi.jpg"); }
-.cell:nth-of-type(2) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/gyoza.jpg"); }
-.cell:nth-of-type(3) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/ramen.jpg"); }
-.cell:nth-of-type(4) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/udon.jpg"); }
-.cell:nth-of-type(5) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/tonkatsu.jpg"); }
-.cell:nth-of-type(6) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/takoyaki.jpg"); }
-.cell:nth-of-type(7) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/teriyaki.jpg"); }
-.cell:nth-of-type(8) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/tempura.jpg"); }
-.cell:nth-of-type(9) .cell-bg { background-image: url("../Multimedia/Imagenes/Clientes/omurice.jpg"); }
+.cell:nth-of-type(1) .cell-bg { background-image: url("/public/Imagenes/Cliente/sushi.jpg"); }
+.cell:nth-of-type(2) .cell-bg { background-image: url("/public/Imagenes/Cliente/gyoza.jpg"); }
+.cell:nth-of-type(3) .cell-bg { background-image: url("/public/Imagenes/Cliente/ramen.jpg"); }
+.cell:nth-of-type(4) .cell-bg { background-image: url("/public/Imagenes/Cliente/udon.jpg"); }
+.cell:nth-of-type(5) .cell-bg { background-image: url("/public/Imagenes/Cliente/tonkatsu.jpg"); }
+.cell:nth-of-type(6) .cell-bg { background-image: url("/public/Imagenes/Cliente/takoyaki.jpg"); }
+.cell:nth-of-type(7) .cell-bg { background-image: url("/public/Imagenes/Cliente/teriyaki.jpg"); }
+.cell:nth-of-type(8) .cell-bg { background-image: url("/public/Imagenes/Cliente/tempura.jpg"); }
+.cell:nth-of-type(9) .cell-bg { background-image: url("/public/Imagenes/Cliente/omurice.jpg"); }
+
 
 .cell-content
 {

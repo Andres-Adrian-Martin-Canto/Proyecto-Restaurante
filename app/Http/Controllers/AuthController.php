@@ -73,20 +73,19 @@ class AuthController extends Controller
     public function registrar(Request $request)
     {
 
-        // Valida los datos del formulario
         $request->validate([
             'nombre' => 'required|string|max:255',
             'correo' => 'required|email|unique:users,email',
-            'contraseña' => 'required|string|min:8|confirmed',
+            'contraseña' => 'required|string|confirmed',
             'direccion' => 'required|string|max:255',
             'telefono' => 'required|digits:10',
             'edad' => 'required|integer|min:1|max:120',
             'sexo' => 'required|in:Masculino,Femenino,Otro',
         ], [
-            'correo.required' => 'el correo es obligatorio',
-            'correo.unique' => 'este correo ya esta registrado',
+            'correo.required' => 'El correo es obligatorio',
+            'correo.unique' => 'Este correo ya está registrado',
+            'contraseña.confirmed' => 'Las contraseñas no coinciden',
         ]);
-
 
         // Crea el usuario
         $user = User::create([
