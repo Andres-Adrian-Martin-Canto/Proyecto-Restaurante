@@ -25,8 +25,9 @@
         <style>
             .alert {
                 padding: 20px;
-                background-color: green;
-                color: white;
+                background-color: #5CB811;
+                border: 2px solid #3B7808;
+                color: #fafafa;
                 margin-bottom: 15px;
                 border-radius: 5px;
                 position: relative;
@@ -37,7 +38,7 @@
                 position: absolute;
                 top: 10px;
                 right: 15px;
-                color: white;
+                color: #fafafa;
                 font-size: 22px;
                 font-weight: bold;
                 cursor: pointer;
@@ -54,7 +55,40 @@
             <strong>Correcto!</strong> {{ session('success') }}
         </div>
     @endif
+    @error('email')
+        <style>
+            .alert {
+                padding: 20px;
+                background-color: #FE1A00 ;
+                border: 2px solid #D83526;
+                color: #fafafa;
+                margin-bottom: 15px;
+                border-radius: 5px;
+                position: relative;
+                font-family: 'Montserrat', Arial, sans-serif;
+            }
 
+            .alert .closebtn {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                color: #fafafa;
+                font-size: 22px;
+                font-weight: bold;
+                cursor: pointer;
+                line-height: 20px;
+                transition: 0.3s;
+            }
+
+            .alert .closebtn:hover {
+                color: #000;
+            }
+        </style>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Error!</strong> {{$message}}
+        </div>
+    @enderror
 
     <div class="form">
         <div class="formIz">

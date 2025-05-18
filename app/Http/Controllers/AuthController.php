@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Log;
 class AuthController extends Controller
 {
     //
-    public function index() {
+    public function index()
+    {
         // * No entrara al formulario de login si ya esta logueado
         if (Auth::check()) {
             return $this->redirectDashboard(Auth::user());
@@ -39,9 +40,8 @@ class AuthController extends Controller
             // 🔁 Redirección según el rol del usuario
             $role = $user->id_roles;
             return $this->redirectDashboard($user);
-
         }
-        return back()->withErrors(['email' => 'Credenciales incorrectas.']);
+        return back()->withErrors(['email' => 'Datos incorrectos.']);
 
         // Authentication failed, redirect back with an error message
         return redirect()->back()->withErrors([
@@ -49,7 +49,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function redirectDashboard( $user)
+    public function redirectDashboard($user)
     {
         // * Redirección según el rol del usuario
         $role = $user->id_roles;
@@ -58,13 +58,13 @@ class AuthController extends Controller
             case 1:
                 return redirect()->route('admin');
             case 2:
-                return redirect()->route('cocina');
+                return redirect()->route('cliente');
             case 3:
                 return redirect()->route('jefe_cocina');
             case 4:
                 return redirect()->route('mesero');
             case 5:
-                return redirect()->route('cliente');
+                return redirect()->route('cocina');
             default:
                 return redirect('/'); // Redirigir a una página predeterminada si no coincide con ningún rol
         }
@@ -94,7 +94,7 @@ class AuthController extends Controller
             'email'    => $request->correo,
             'password' => Hash::make($request->contraseña),
             'telefono' => $request->telefono,
-            'id_roles' => 1,
+            'id_roles' => 2,
         ]);
 
         // Crea el cliente
@@ -107,5 +107,13 @@ class AuthController extends Controller
 
         // Redirecciona con mensaje
         return redirect()->route('login.form')->with('success', 'Usuario registrado correctamente. Ahora inicia sesión.');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login.form'); // o la ruta que muestra tu login
     }
 }

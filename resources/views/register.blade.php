@@ -23,8 +23,9 @@
         <style>
             .alert {
                 padding: 20px;
-                background-color: #f44336;
-                color: white;
+                background-color: #FE1A00 ;
+                border: 2px solid #D83526;
+                color: #fafafa;
                 margin-bottom: 15px;
                 border-radius: 5px;
                 position: relative;
@@ -35,7 +36,7 @@
                 position: absolute;
                 top: 10px;
                 right: 15px;
-                color: white;
+                color: #fafafa;
                 font-size: 22px;
                 font-weight: bold;
                 cursor: pointer;

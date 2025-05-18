@@ -13,7 +13,8 @@
     <link rel="icon" href="{{ asset('Imagenes/icono.png') }}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 </head>
 
@@ -25,12 +26,13 @@
             </div>
             <p>El Admin Carlos</p>
 
-            
-            <a href="#" class="boton">
-                <img src="{{ asset('Imagenes/cerrar_sesion.png') }}" alt="" class="plato">
-                <p>Cerrar sesión</p>
-            </a>
-
+            <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                @csrf
+                <button type="submit" class="boton">
+                    <img src="{{ asset('Imagenes/cerrar_sesion.png') }}" alt="" class="plato">
+                    <p>Cerrar sesión</p>
+                </button>
+            </form>
 
         </section>
         <secton class="der">

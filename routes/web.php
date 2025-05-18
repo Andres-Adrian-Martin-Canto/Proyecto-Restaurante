@@ -39,7 +39,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin', function () {
         return view('admin.admin');
     })->name('admin');
-    // * Poner las demas rutas de administrador aquí
+    
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
 
 });
 

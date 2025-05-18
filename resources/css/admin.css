@@ -62,11 +62,14 @@ main
     border-radius: 13px;
     text-decoration: none;
     transition: border 0.2s ease-in-out;
+    text-decoration: none;
 }
 
-.boton:hover
-{
+
+.boton:hover, .boton:focus {
     border-color: #5b8870;
+    background: #e9f5f2;
+    color: #5b8870;
 }
 
 .boton p
