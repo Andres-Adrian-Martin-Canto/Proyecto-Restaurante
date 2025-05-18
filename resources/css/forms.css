@@ -94,18 +94,19 @@
 {
     width: 63%;
     height: 100%;
-    padding: clamp(1rem,2.3vw,3rem);
+    padding: clamp(0.5rem,1.2vw,2rem);
     border-radius: 0 3rem 3rem 0;
     background-color: #fff;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;  
 }
 
 .formDer h2
 {
     font-family: "Kaisei Decol", serif;
     font-weight: bold;
-    font-size: clamp(1rem,2.5vw,2.5rem);
+    font-size: clamp(1rem,2.3vw,2.3rem);
     text-align: center;
     color: #5b8870;
     margin: 0;
@@ -116,6 +117,22 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 1rem auto;
+}
+
+.campos select {
+    width: 100%;
+    padding: clamp(7px,0.7vw,0.7rem);
+    margin-top: 1vh;
+    font-size: clamp(1rem,1.16vw,1.2rem);
+    color: #5b8870;
+    border: 0.2rem solid #a4c3b2;
+    border-radius: 0.8rem;
+    outline: none;
+    transition: border 0.2s ease-in-out;
+}
+
+.campos select:focus {
+    border-color: #5b8870;
 }
 
 .campos label, .textArea label
@@ -131,7 +148,7 @@
     width: 100%;
     padding: clamp(7px,0.7vw,0.7rem);;
     margin-top: 1vh;
-    font-size: clamp(1rem,1.5vw,1.2rem);
+    font-size: clamp(1rem,1.2vw,1.2rem);
     color: #5b8870;
     border: 0.2rem solid #a4c3b2;
     border-radius: 0.8rem;
@@ -162,6 +179,21 @@
     border-radius: 0 0.6vw 0.6vw 0;
     border-left: 1.6px solid #5b8870;
 }
+
+
+.campos div:first-child select
+{
+    border-radius: 0.6vw 0 0 0.6vw;
+    border-right: 1.6px solid #5b8870;
+}
+
+.campos div:last-child select
+{
+    border-radius: 0 0.6vw 0.6vw 0;
+    border-left: 1.6px solid #5b8870;
+}
+
+
 /* Area Checkbox */
 .check
 {
@@ -196,6 +228,7 @@
 .btnAccount
 {
     display: block;
+    max-width: 15rem; /* Limita el tamaño máximo */
     width: 13vw;
     padding: 0.8rem;
     margin: auto;
@@ -256,3 +289,6 @@
     opacity: 70%;
     margin-left: 10px;
 }
+
+
+

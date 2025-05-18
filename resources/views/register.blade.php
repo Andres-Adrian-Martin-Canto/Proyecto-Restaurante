@@ -19,7 +19,6 @@
 </head>
 
 <body>
-
     <div class="form">
         <div class="formIz">
             <h2>¡Bienvenido de vuelta!</h2>
@@ -27,7 +26,8 @@
                 tu cuenta</p>
             <a href="{{ route('login.form') }}">Iniciar sesión</a>
         </div>
-        <form action="" class="formDer">
+        <form action="{{ route('register') }}" method="POST" class="formDer">
+            @csrf
             <h2>Crea una cuenta si no tienes una</h2>
 
             <div class="campos">
@@ -50,9 +50,9 @@
                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                 </div>
                 <div>
-                    <label for="confirmar">Confirmar Contraseña</label>
-                    <input type="password" id="confirmar" name="confirmar" placeholder="Confirma tu contraseña"
-                        required>
+                    <label for="contraseña_confirmation">Confirmar Contraseña</label>
+                    <input type="password" id="contraseña_confirmation" name="contraseña_confirmation"
+                        placeholder="Confirma tu contraseña" required>
                 </div>
             </div>
 
@@ -68,7 +68,22 @@
                 </div>
             </div>
 
-
+            <div class="campos">
+                <div>
+                    <label for="edad">Edad</label>
+                    <input type="number" id="edad" name="edad" placeholder="Edad" min="1" max="120"
+                        required>
+                </div>
+                <div>
+                    <label for="sexo">Sexo</label>
+                    <select id="sexo" name="sexo" required>
+                        <option value="">Selecciona tu sexo</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+            </div>
 
             <div class="check">
                 <input type="checkbox" id="checkB" required>
@@ -81,7 +96,8 @@
         </form>
     </div>
 
-    <p class="black">© Gokai Asian Food. All rights reserved | Design by <img src="{{ asset('Imagenes/BlackWaterLogo.png') }}" alt=""></p>
+    <p class="black">© Gokai Asian Food. All rights reserved | Design by <img
+            src="{{ asset('Imagenes/BlackWaterLogo.png') }}" alt=""></p>
 </body>
 
 </html>

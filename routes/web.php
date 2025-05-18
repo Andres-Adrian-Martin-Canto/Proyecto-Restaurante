@@ -48,3 +48,9 @@ Route::middleware(['auth'])->group(function () {
 // * RUTAS MESERO
 
 // * RUTAS CLIENTE
+
+Route::get('/registrar', function () {
+    return view('register');
+})->name('register.form');
+
+Route::post('/registrar', [AuthController::class, 'registrar'])->name('register');
