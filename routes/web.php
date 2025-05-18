@@ -19,13 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function () {
-    // * No entrara al formulario de login si ya esta logueado
-    if (Auth::check()) {
-        return redirect()->back();
-    }
-    return view('login');
-})->name('login.form');
+Route::get('/login', [AuthController::class, 'index'])->name('login.form');
 
 Route::post('/login', [AuthController::class, 'login'])
     ->name('login');

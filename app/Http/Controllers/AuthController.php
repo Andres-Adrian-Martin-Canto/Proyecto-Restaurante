@@ -12,10 +12,17 @@ use Illuminate\Support\Facades\Log;
 class AuthController extends Controller
 {
     //
+    public function index() {
+        // * No entrara al formulario de login si ya esta logueado
+        if (Auth::check()) {
+            return $this->redirectDashboard(Auth::user());
+        }
+        return view('login');
+    }
 
     public function login(Request $request)
     {
-        Log::info("message");
+
         // Validate the request
         $request->validate([
             'email' => 'required|email',
@@ -31,19 +38,8 @@ class AuthController extends Controller
 
             // 🔁 Redirección según el rol del usuario
             $role = $user->id_roles;
+            return $this->redirectDashboard($user);
 
-            // * ADMINISTADOR
-            if ($role === 1) {
-                return redirect()->route('admin');
-                // * COCINA
-            } else if ($role === 2) {
-                // ! return view('jefe-cocina.jefeCocina');
-                // * USUARIO
-            } else if ($role === 3) {
-                // ! return view('mesero.mesero'); // Default
-            } else {
-                // ! return view('client.cliente');
-            }
         }
         return back()->withErrors(['email' => 'Credenciales incorrectas.']);
 
@@ -51,6 +47,27 @@ class AuthController extends Controller
         return redirect()->back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
+    }
+
+    public function redirectDashboard( $user)
+    {
+        // * Redirección según el rol del usuario
+        $role = $user->id_roles;
+
+        switch ($role) {
+            case 1:
+                return redirect()->route('admin');
+            case 2:
+                return redirect()->route('cocina');
+            case 3:
+                return redirect()->route('jefe_cocina');
+            case 4:
+                return redirect()->route('mesero');
+            case 5:
+                return redirect()->route('cliente');
+            default:
+                return redirect('/'); // Redirigir a una página predeterminada si no coincide con ningún rol
+        }
     }
 
     public function registrar(Request $request)
