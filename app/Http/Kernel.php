@@ -54,8 +54,12 @@ class Kernel extends HttpKernel
      */
     protected $middlewareAliases = [
         'auth' => \App\Http\Middleware\Authenticate::class,
+        // * Agregacion de los middleware de los roles
         'iscliente' => \App\Http\Middleware\IsCliente::class,
         'isadmin' => \App\Http\Middleware\IsAdmin::class,
+        'isjefe_cocina' => \App\Http\Middleware\IsJefe_Cocina::class,
+        'ismesero' => \App\Http\Middleware\IsMesero::class,
+        // * Fin de la agregacion de los middleware de los roles
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
