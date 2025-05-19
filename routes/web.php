@@ -43,7 +43,7 @@ Route::middleware(['auth'])->group(function () {
         // * ruta raiz
         Route::get('/', [ClienteController::class, 'index'])->name('cliente');
         // * RUTA PARA VER PRODUCTOS
-        Route::get('/pedidos',[AuthController::class, 'pedidos'])->name('cliente.pedidos');
+        Route::get('/pedidos', [AuthController::class, 'pedidos'])->name('cliente.pedidos');
 
         // * Ruta para reservaciones
         Route::get('/reservaciones', function () {
@@ -73,12 +73,12 @@ Route::middleware(['auth'])->group(function () {
         // * ruta raiz
         Route::get('/', function () {
             return view('jefe-cocina.jefeCocina');
-        })->name('cocina');
+        })->name('jefe_cocina');
         // * Agregar las de mas rutas de cocina
 
     });
 
-
+    
     // * RUTAS MESERO
     Route::middleware(['ismesero'])->prefix('mesero')->group(function () {
         // * ruta raiz
@@ -87,6 +87,10 @@ Route::middleware(['auth'])->group(function () {
         })->name('mesero');
         // * Agregar las de mas rutas del mesero
 
+        // RUTA PARA LA VISTA DE COMANDAS
+        Route::get('/comandas', function () {
+            return view('mesero.comandas');
+        })->name('mesero.comandas');
     });
 
 

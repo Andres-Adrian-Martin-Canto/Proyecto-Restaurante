@@ -1,3 +1,4 @@
+/* ---------- ESTILO GENERAL ---------- */
 body {
     background: #e9f5f2;
     font-family: 'Montserrat', Arial, sans-serif;
@@ -8,41 +9,80 @@ body {
     margin: 3rem auto;
     background: #fff;
     border-radius: 18px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
     padding: 2.5rem;
 }
 
-/* ----- HEADER CON BOTÓN Y TÍTULO ----- */
+/* ---------- HEADER CON BOTÓN Y TÍTULO ---------- */
 .header-pedidos {
     display: flex;
     align-items: center;
-    gap: 7rem;            
-    margin-bottom: 2rem;
-    margin-top: 1.5rem;
-
+    gap: 7rem; 
+    margin: 1.5rem 0 2rem 0;
 }
 
 .header-pedidos h2 {
     margin: 0;
     font-size: 2.2rem;
     color: #5b8870;
-    font-family: 'Montserrat', Arial, sans-serif;
     font-weight: 700;
 }
 
-
-h2 {
+/* ---------- BOTÓN DE REGRESAR ---------- */
+.btn-back {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #e9f5f2;
     color: #5b8870;
-    margin-bottom: 2rem;
-
+    border: 2px solid #a4c3b2;
+    border-radius: 15px;
+    padding: 8px 22px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(91,136,112,0.05);
+    transition: background 0.2s, border 0.2s, color 0.2s;
+    width: fit-content;
 }
 
+.btn-back:hover {
+    background: #5b8870;
+    color: #fff;
+    border-color: #5b8870;
+}
+
+.btn-back .arrow-icon {
+    width: 34px;
+    height: 34px;
+    transition: transform 0.2s;
+}
+
+.btn-back:hover .arrow-icon {
+    transform: translateX(-5px) scale(1.05);
+}
+
+/* ---------- SVG DEL BOTÓN ---------- */
+.arrow-icon circle {
+    stroke: #5b8870;
+    stroke-width: 3;
+    fill: #e9f5f2;
+}
+
+.arrow-icon polyline {
+    stroke: #5b8870;
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ---------- TABLA DE PEDIDOS ---------- */
 .pedido {
     margin-bottom: 2.5rem;
     border-bottom: 1px solid #a4c3b2;
     padding-bottom: 1.5rem;
 }
-
 .pedido:last-child {
     border-bottom: none;
 }
@@ -62,58 +102,18 @@ table {
     border-collapse: collapse;
     margin-top: 1rem;
 }
-
-th,
-td {
+th, td {
     padding: 10px 8px;
     text-align: left;
 }
-
 th {
     background: #e9f5f2;
     color: #5b8870;
 }
-
 tr:nth-child(even) {
     background: #f6faf9;
 }
-
 .total {
     color: #5cb811;
     font-weight: 700;
-}
-
-/* --------- BOTÓN DE REGRESAR --------- */
-.btn-back {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: #e9f5f2; 
-    color: #5b8870;   
-    border: 2px solid #a4c3b2;
-    border-radius: 15px;
-    padding: 8px 22px;
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 1.35rem;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 2px 8px rgba(91,136,112,0.05);
-    transition: background 0.2s, border 0.2s, color 0.2s;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    width: fit-content;
-}
-
-.btn-back:hover {
-    background: #5b8870;
-    color: #fff;
-    border: 2px solid #5b8870;
-}
-
-.btn-back .arrow-icon {
-    transition: transform 0.2s;
-}
-
-.btn-back:hover .arrow-icon {
-    transform: translateX(-5px) scale(1.05);
 }

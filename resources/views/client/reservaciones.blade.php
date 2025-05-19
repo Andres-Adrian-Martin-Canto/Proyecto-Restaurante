@@ -20,10 +20,18 @@
 </head>
 
 <body>
-
     <main>
         <div class="izq">
-            <h3>Reservación</h3>
+            <header class="header-pedidos">
+                <h3>Reservación</h3>
+                <a href="{{ route('cliente') }}" class="btn-back">
+                    <svg viewBox="0 0 40 40" class="arrow-icon">
+                        <circle cx="20" cy="20" r="18" />
+                        <polyline points="23,12 15,20 23,28" />
+                    </svg>
+                    <span>Regresar</span>
+                </a>
+            </header>
             <div class="select">
                 <label for="start" onclick="document.getElementById('start').showPicker()">Inicio</label>
                 <input type="datetime-local" name="start" id="start" required>
@@ -73,8 +81,6 @@
                 <div class="color-box orange"></div>
                 <p>Mesa no disponible</p>
             </div>
-
-
         </div>
 
         <div class="der">

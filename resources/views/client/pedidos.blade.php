@@ -25,14 +25,13 @@
     <div class="container">
         <header class="header-pedidos" style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;">
             <a href="javascript:history.back()" class="btn-back">
-                <svg viewBox="0 0 40 40" width="34" height="34" class="arrow-icon" fill="none">
-                    <circle cx="20" cy="20" r="18" stroke="#5b8870" stroke-width="3" fill="#e9f5f2" />
-                    <polyline points="23,12 15,20 23,28" stroke="#5b8870" stroke-width="3" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round" />
+                <svg viewBox="0 0 40 40" class="arrow-icon">
+                    <circle cx="20" cy="20" r="18" />
+                    <polyline points="23,12 15,20 23,28" />
                 </svg>
                 <span>Regresar</span>
             </a>
-            <h2 style="margin:0;">Mis Pedidos</h2>
+            <h2>Mis Pedidos</h2>
         </header>
         @forelse ($ventas as $venta)
             <div class="pedido border rounded-lg p-4 mb-6 shadow-md bg-white">

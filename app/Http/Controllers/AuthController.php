@@ -71,13 +71,13 @@ class AuthController extends Controller
         }
     }
 
-    public function pedidos()
-    {
-        $user = Auth::user();
+    //public function pedidos()
+    //{
+        //$user = Auth::user();
 
         // Trae las ventas del usuario autenticado
-        $ventas = $user->ventas;
-        dd($ventas->detalle_venta);
+        //$ventas = $user->ventas;
+        //dd($ventas->detalle_venta);
         // $ventas = Venta::with([
         //     'formaPago', // relación para la forma de pago
         //     'detalles.producto' // relación para los productos en detalles de venta
@@ -87,8 +87,8 @@ class AuthController extends Controller
         //     ->get();
         //     dd($ventas);
         // Pasa $ventas a la vista
-        return view('client.pedidos', compact('ventas'));
-    }
+        //return view('client.pedidos', compact('ventas'));
+    //}
 
     public function registrar(Request $request)
     {

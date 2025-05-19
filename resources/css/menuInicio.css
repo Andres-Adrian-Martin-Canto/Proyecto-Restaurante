@@ -63,6 +63,7 @@ main
     border-radius: 13px;
     text-decoration: none;
     transition: border 0.2s ease-in-out;
+
 }
 
 .boton:hover
@@ -359,4 +360,59 @@ main
 {
     background-color: #559a74;
     cursor: pointer;
-}  
+} 
+
+
+
+
+
+.boton2 {
+    margin-top: 1rem;
+    padding: 10px 18px;
+    min-width: 15rem;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: #fff;
+    border: 3px solid transparent;
+    border-radius: 13px;
+    text-decoration: none;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.boton2:hover {
+    border-color: #5b8870;
+    box-shadow: 0 2px 8px rgba(91, 136, 112, 0.10);
+}
+
+.boton2 span {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #5b8870;
+    margin-left: 0.3rem;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+/* SVG: que se ajuste y no sea tan grande */
+.arrow-icon {
+    width: 2.8rem;   
+    height: 2.8rem;
+    flex-shrink: 0;
+    display: block;
+}
+
+.arrow-icon circle {
+    stroke: #5b8870;
+    stroke-width: 3;
+    fill: #e9f5f2;
+}
+
+.arrow-icon polyline {
+    stroke: #5b8870;
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+

@@ -22,15 +22,76 @@ main
 }
 
 /* CONTENEDOR DE TEXTO */
-h3
+.header-pedidos h3
 {
-    width: 85%;
-    margin: 1rem auto;
+    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    margin-right: -1rem;
     font-size: 3rem;
     font-weight: 700;
     color: #5b8870;
     text-align: center;
 }
+
+/* ---------- HEADER CON BOTÓN Y TÍTULO ---------- */
+.header-pedidos {
+    display: flex;
+    align-items: center;
+    gap: 7rem; 
+    margin: auto;
+}
+
+/* ---------- BOTÓN DE REGRESAR ---------- */
+.btn-back {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #e9f5f2;
+    color: #5b8870;
+    border: 2px solid #a4c3b2;
+    border-radius: 15px;
+    padding: 8px 22px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(91,136,112,0.05);
+    transition: background 0.2s, border 0.2s, color 0.2s;
+    width: fit-content;
+    margin-bottom: -8px;
+}
+
+.btn-back:hover {
+    background: #5b8870;
+    color: #fff;
+    border-color: #5b8870;
+}
+
+.btn-back .arrow-icon {
+    width: 34px;
+    height: 34px;
+    transition: transform 0.2s;
+}
+
+.btn-back:hover .arrow-icon {
+    transform: translateX(-5px) scale(1.05);
+}
+
+/* ---------- SVG DEL BOTÓN ---------- */
+.arrow-icon circle {
+    stroke: #5b8870;
+    stroke-width: 3;
+    fill: #e9f5f2;
+}
+
+.arrow-icon polyline {
+    stroke: #5b8870;
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
 
 /* CONTENEDOR DE FECHA */
 .select

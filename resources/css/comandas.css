@@ -1,0 +1,92 @@
+body {
+    background: #e9f5f2;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.card-mesa {
+    background: #dadada;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(91,136,112,0.06);
+    padding: 2rem 2rem 1.5rem 2rem;
+    max-width: 290px;
+    min-width: 220px;
+    margin: 16px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.card-mesa h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-bottom: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.card-producto {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.35rem;
+    margin-bottom: 18px;
+    color: #26363b;
+}
+
+.precio {
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.card-total {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.card-total span {
+    font-weight: 700;
+}
+
+.card-total-rojo span {
+    color: #e53935;  /* Rojo para "En Proceso" */
+}
+
+.card-total-verde span {
+    color: #b6c42c; /* Verde-amarillo para "Listo" */
+}
+
+.card-estado {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.card-estado-proceso span {
+    color: #e53935;
+    font-weight: 700;
+}
+
+.card-estado-listo span {
+    color: #b6c42c;
+    font-weight: 700;
+}
+
+.btn-editar {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    background: #5882c2;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 18px;
+    padding: 8px 0;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-editar:hover {
+    background: #4666a9;
+}
