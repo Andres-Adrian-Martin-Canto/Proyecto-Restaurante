@@ -34,7 +34,6 @@
             </a>
             <h2 style="margin:0;">Mis Pedidos</h2>
         </header>
-        S1T0MEISTER — 21:24
         @forelse ($ventas as $venta)
             <div class="pedido border rounded-lg p-4 mb-6 shadow-md bg-white">
                 <h4 class="text-lg font-bold mb-2">

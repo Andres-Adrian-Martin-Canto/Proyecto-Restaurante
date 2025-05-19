@@ -70,19 +70,24 @@ class AuthController extends Controller
                 return redirect('/'); // Redirigir a una página predeterminada si no coincide con ningún rol
         }
     }
-    
+
     public function pedidos()
     {
         $user = Auth::user();
 
         // Trae las ventas del usuario autenticado
-        $ventas = Venta::with(['detalles.producto'])
-            ->where('user_id', $user->id)
-            ->orderBy('fecha', 'desc')
-            ->get();
-        dd($ventas);
+        $ventas = $user->ventas;
+        dd($ventas->detalle_venta);
+        // $ventas = Venta::with([
+        //     'formaPago', // relación para la forma de pago
+        //     'detalles.producto' // relación para los productos en detalles de venta
+        //     ])
+        //     ->where('user_id', $user->id)
+        //     ->orderBy('fecha', 'desc')
+        //     ->get();
+        //     dd($ventas);
         // Pasa $ventas a la vista
-        //return view('client.pedidos', compact('ventas'));
+        return view('client.pedidos', compact('ventas'));
     }
 
     public function registrar(Request $request)

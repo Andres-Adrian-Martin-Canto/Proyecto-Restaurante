@@ -42,18 +42,14 @@ Route::middleware(['auth'])->group(function () {
 
         // * ruta raiz
         Route::get('/', [ClienteController::class, 'index'])->name('cliente');
+        // * RUTA PARA VER PRODUCTOS
         Route::get('/pedidos',[AuthController::class, 'pedidos'])->name('cliente.pedidos');
-      
 
         // * Ruta para reservaciones
         Route::get('/reservaciones', function () {
             return view('client.reservaciones');
         })->name('cliente.reservaciones');
 
-        // * Ruta para pedidos
-        Route::get('/pedidos', function () {
-            return view('client.pedidos');
-        })->name('cliente.pedidos');
 
         // * Agregar las de mas rutas del cliente
 
