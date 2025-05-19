@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use App\Models\Venta;
 
 class AuthController extends Controller
 {
@@ -68,6 +69,20 @@ class AuthController extends Controller
             default:
                 return redirect('/'); // Redirigir a una página predeterminada si no coincide con ningún rol
         }
+    }
+    
+    public function pedidos()
+    {
+        $user = Auth::user();
+
+        // Trae las ventas del usuario autenticado
+        $ventas = Venta::with(['detalles.producto'])
+            ->where('user_id', $user->id)
+            ->orderBy('fecha', 'desc')
+            ->get();
+        dd($ventas);
+        // Pasa $ventas a la vista
+        //return view('client.pedidos', compact('ventas'));
     }
 
     public function registrar(Request $request)

@@ -1,0 +1,119 @@
+body {
+    background: #e9f5f2;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: 3rem auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+    padding: 2.5rem;
+}
+
+/* ----- HEADER CON BOTÓN Y TÍTULO ----- */
+.header-pedidos {
+    display: flex;
+    align-items: center;
+    gap: 7rem;            
+    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+
+}
+
+.header-pedidos h2 {
+    margin: 0;
+    font-size: 2.2rem;
+    color: #5b8870;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+}
+
+
+h2 {
+    color: #5b8870;
+    margin-bottom: 2rem;
+
+}
+
+.pedido {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid #a4c3b2;
+    padding-bottom: 1.5rem;
+}
+
+.pedido:last-child {
+    border-bottom: none;
+}
+
+h4 {
+    color: #376355;
+    margin-bottom: 0.6rem;
+}
+
+.pedido p {
+    color: #4b4945;
+    margin: 0.3rem 0 0.8rem 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th,
+td {
+    padding: 10px 8px;
+    text-align: left;
+}
+
+th {
+    background: #e9f5f2;
+    color: #5b8870;
+}
+
+tr:nth-child(even) {
+    background: #f6faf9;
+}
+
+.total {
+    color: #5cb811;
+    font-weight: 700;
+}
+
+/* --------- BOTÓN DE REGRESAR --------- */
+.btn-back {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #e9f5f2; 
+    color: #5b8870;   
+    border: 2px solid #a4c3b2;
+    border-radius: 15px;
+    padding: 8px 22px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(91,136,112,0.05);
+    transition: background 0.2s, border 0.2s, color 0.2s;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    width: fit-content;
+}
+
+.btn-back:hover {
+    background: #5b8870;
+    color: #fff;
+    border: 2px solid #5b8870;
+}
+
+.btn-back .arrow-icon {
+    transition: transform 0.2s;
+}
+
+.btn-back:hover .arrow-icon {
+    transform: translateX(-5px) scale(1.05);
+}
