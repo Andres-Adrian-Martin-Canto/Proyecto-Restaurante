@@ -7,8 +7,7 @@
     <!--Titulo--------------------------------------------------------------------------------------------------------------------->
     <title>Menú de inicio</title>
     <!--Css------------------------------------------------------------------------------------------------------------------------>
-    @vite(['resources/css/menuInicio.css'])
-    @vite(['resources/css/global.css'])
+    @vite(['resources/css/menuInicio.css', 'resources/js/cliente/carrito-compra.js', 'resources/css/global.css'])
     <!--Favicon-------------------------------------------------------------------------------------------------------------------->
     <link rel="icon" href="{{ asset('Imagenes/icono.png') }}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,21 +43,19 @@
 
         </section>
         <section class="center">
-            <div class="cell">
-                <div class="cell-bg"> <!--Aquí solo es para una imágen de fondo--> </div>
-                <div class="cell-content">
-                    <h3>Sushi - $450.00</h3>
-                    <p>Arroz avinagrado con pescado y otros ingredientes</p>
+            @foreach ($productos as $producto)
+                <div class="cell">
+                    <div class="cell-bg"
+                        style="background-image: url('{{ asset($producto->imagen) }}');">
+                    </div>
+                    <div class="cell-content">
+                        <h3>{{ $producto->nombre }} - ${{ $producto->precio }}</h3>
+                        <p>{{ $producto->descripcion }}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="cell">
-                <div class="cell-bg"> <!--Aquí solo es para una imágen de fondo--> </div>
-                <div class="cell-content">
-                    <h3>Gyoza - $100.00</h3>
-                    <p>Empanaditas rellenas de carne o vegetales, doradas a la perfección</p>
+            @endforeach
 
-                </div>
-            </div>
+            {{--
             <div class="cell">
                 <div class="cell-bg"> <!--Aquí solo es para una imágen de fondo--> </div>
                 <div class="cell-content">
@@ -114,7 +111,7 @@
                     <p>Tortilla de huevo rellena de arroz frito con salsa de tomate</p>
 
                 </div>
-            </div>
+            </div> --}}
         </section>
         <section class="der">
             <h3>Mi orden</h3>
@@ -123,7 +120,7 @@
             </div>
 
             <div class="order-list">
-                <div class="order-item">
+                {{-- <div class="order-item">
                     <div class="info">
                         <p>Sushi</p>
                         <div>
@@ -166,7 +163,7 @@
                     <button class="delete">
                         <img src="{{ asset('Imagenes/Cliente/trash.png') }}" alt="">
                     </button>
-                </div>
+                </div> --}}
             </div>
 
             <div class="total">
@@ -174,7 +171,7 @@
                 <p>$ 450.00</p>
             </div>
 
-            <button type="submit" class="checkout">Checkout</button>
+            <button class="checkout">Checkout</button>
         </section>
     </main>
 </body>

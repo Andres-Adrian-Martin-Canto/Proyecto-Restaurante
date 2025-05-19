@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClienteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -40,9 +41,7 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['iscliente'])->prefix('cliente')->group(function () {
 
         // * ruta raiz
-        Route::get('/', function () {
-            return view('client.cliente');
-        })->name('cliente');
+        Route::get('/', [ClienteController::class, 'index'])->name('cliente');
 
         // * Ruta para reservaciones
         Route::get('/reservaciones', function () {
