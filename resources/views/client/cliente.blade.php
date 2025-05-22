@@ -162,12 +162,10 @@
                     </button>
                 </div> --}}
             </div>
-
             <div class="total">
                 <p>Total</p>
                 <p>$ 450.00</p>
             </div>
-
             <button class="checkout">Checkout</button>
         </section>
     </main>

@@ -67,28 +67,17 @@ class AuthController extends Controller
             case 5:
                 return redirect()->route('cocina');
             default:
-                return redirect('/'); // Redirigir a una página predeterminada si no coincide con ningún rol
+                return redirect('/');
         }
     }
 
-    //public function pedidos()
-    //{
-        //$user = Auth::user();
 
-        // Trae las ventas del usuario autenticado
-        //$ventas = $user->ventas;
-        //dd($ventas->detalle_venta);
-        // $ventas = Venta::with([
-        //     'formaPago', // relación para la forma de pago
-        //     'detalles.producto' // relación para los productos en detalles de venta
-        //     ])
-        //     ->where('user_id', $user->id)
-        //     ->orderBy('fecha', 'desc')
-        //     ->get();
-        //     dd($ventas);
-        // Pasa $ventas a la vista
-        //return view('client.pedidos', compact('ventas'));
-    //}
+    public function pedidos()
+    {
+        $user = Auth::user();
+        $ventas = $user->ventas()->with(['detalles.producto'])->orderBy('fecha', 'desc')->get();
+        return view('client.pedidos', compact('ventas'));
+    }
 
     public function registrar(Request $request)
     {

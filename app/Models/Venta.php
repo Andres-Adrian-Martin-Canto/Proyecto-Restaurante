@@ -21,8 +21,9 @@ class Venta extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function detalle_venta() :HasMany
+    public function detalles(): HasMany
     {
         return $this->hasMany(Detalle_Venta::class, 'venta_id');
     }
+
 }

@@ -14,4 +14,9 @@ class Detalle_venta extends Model
         'venta_id',
         'producto_id'
     ];
+
+    public function producto()
+    {
+        return $this->belongsTo(\App\Models\Producto::class, 'producto_id');
+    }
 }
