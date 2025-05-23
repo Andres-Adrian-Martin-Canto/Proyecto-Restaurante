@@ -21,7 +21,7 @@
     <main>
         <section class="izq">
             <div class="icon">
-                <img src="{{ asset('Imagenes/profile.png') }}" alt="">
+                <img src="{{ asset('Imagenes/Mesero/imagen_perfil_mesero.png') }}" alt="">
             </div>
             <p>{{ Auth::user()->name }}</p>
 
@@ -36,33 +36,27 @@
         </section>
         <div class="card-mesa">
             <h3>Mesa 1</h3>
-            <div class="card-producto">
-                <span>Sushi x1</span>
-                <span class="precio">$450.00</span>
-            </div>
-            <div class="card-total card-total-rojo">
-                Total: <span>$450.00</span>
-            </div>
-            <div class="card-estado card-estado-proceso">
-                Estado: <span>En Proceso</span>
+            <div class="card-mesa-lista">
+                <div class="card-producto">
+                    <span>Sushi x1</span>
+                    <span class="precio">$450.00</span>
+                </div>
+                                <div class="card-producto">
+                    <span>Sushi x1</span>
+                    <span class="precio">$450.00</span>
+                </div>
+                                <div class="card-producto">
+                    <span>Sushi x1</span>
+                    <span class="precio">$450.00</span>
+                </div>
+                <div class="card-total card-total-rojo">
+                    Total: <span>$450.00</span>
+                </div>
             </div>
             <button class="btn-editar">Editar</button>
         </div>
 
-        <div class="card-mesa">
-            <h3>Mesa 2</h3>
-            <div class="card-producto">
-                <span>Sushi x1</span>
-                <span class="precio">$450.00</span>
-            </div>
-            <div class="card-total card-total-verde">
-                Total: <span>$450.00</span>
-            </div>
-            <div class="card-estado card-estado-listo">
-                Estado: <span>Listo</span>
-            </div>
-            <button class="btn-editar">Editar</button>
-        </div>
+
     </main>
 </body>
 

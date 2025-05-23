@@ -9,7 +9,7 @@ body {
     border-radius: 20px;
     max-width: 370px;
     padding: 2rem 2rem 1.2rem 2rem;
-    margin: 1.5rem;
+    margin: 1.5rem 0 1.5rem 1.5rem;
     box-shadow: 0 2px 10px rgba(30,40,50,0.10);
     display: inline-block;
     vertical-align: top;
@@ -31,7 +31,7 @@ body {
 }
 
 .pedido-item span {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: #2a3941;
 }
 
@@ -46,7 +46,6 @@ body {
     min-width: 180px;
     appearance: none;
     -webkit-appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='24' height='24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.7em center;
     background-size: 22px 22px;
@@ -63,6 +62,13 @@ body {
     color: #222;
 }
 
+.pedido-list {
+    max-height: 450px;     
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+    padding-right: 8px;   
+}
+
 /* Botón de pedido listo */
 .btn-listo {
     width: 90%;
@@ -73,18 +79,16 @@ body {
     color: #fff;
     border: none;
     border-radius: 16px;
-    font-size: 1.45rem;
+    font-size: 1.3rem;
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(91,136,112,0.10);
-    transition: background 0.17s;
 }
 
 .btn-listo:hover {
     background: #4073b5;
 }
 
-/* Layout para múltiples tarjetas */
 body {
     display: flex;
     flex-wrap: wrap;

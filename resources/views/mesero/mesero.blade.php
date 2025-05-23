@@ -21,7 +21,7 @@
     <main>
         <section class="izq">
             <div class="icon">
-                <img src="{{ asset('Imagenes/profile.png') }}" alt="">
+                <img src="{{ asset('Imagenes/Mesero/imagen_perfil_mesero.png') }}" alt="">
             </div>
             <p>{{ Auth::user()->name }}</p>
 

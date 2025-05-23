@@ -22,7 +22,7 @@
     <main>
         <section class="izq">
             <div class="icon">
-                <img src="{{ asset('Imagenes/profile.png') }}" alt="" class="plato">
+                <img src="{{ asset('Imagenes/Administrador/imagen_perfil_admin.png') }}" alt="" class="plato">
             </div>
             <p>El Admin Carlos</p>
 
@@ -50,8 +50,7 @@
                 <select name="concept" id="concept">
                     <option value="Ventas">Ventas</option>
                     <option value="Reservaciones">Reservaciones</option>
-                    <option value="Pedidos_pendietes">Pedidos pendientes</option>
-                    <option value="Pedidos_cancelados">Pedidos cancelados</option>
+                    <option value="Comandas_y_pedidos">Comandas y pedidos</option>
                 </select>
             </div>
 

@@ -272,3 +272,52 @@ button:hover
     font-size: 2rem;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
+
+.mesa-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
+    grid-gap: 24px 32px;
+    justify-content: center;
+    margin: 2rem auto;
+}
+.mesa {
+    background: #97cd3d; /* Verde disponible */
+    border: none;
+    border-radius: 16px;
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    outline: none;
+    box-shadow: 0 3px 12px rgba(100, 120, 120, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.no-disponible {
+    background: #ffa000 !important; /* Naranja */
+    cursor: not-allowed;
+    opacity: 0.82;
+}
+.mesa-seleccionada {
+    background: #1a3764 !important; /* Azul oscuro */
+    color: #fff;
+    transform: scale(1.07);
+}
+.mesa-central {
+    background: #ffa000 !important;
+    width: 180px !important;
+    height: 180px !important;
+    border-radius: 50% !important;
+    font-size: 2.7rem !important;
+    font-weight: 800;
+    box-shadow: 0 6px 22px rgba(100,120,120,0.16);
+    grid-row: span 2;
+    cursor: default;
+}
+.mesa:disabled, .mesa.no-disponible {
+    pointer-events: none;
+}

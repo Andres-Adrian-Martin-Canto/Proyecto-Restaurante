@@ -110,6 +110,30 @@
         </div>
     </main>
 
+    <script>
+        document.querySelectorAll('.mesa').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                // Ignorar la central o las no disponibles
+                if (btn.classList.contains('mesa-central') || btn.classList.contains('no-disponible'))
+                    return;
+                // Quitar selección previa
+                document.querySelectorAll('.mesa').forEach(function(b) {
+                    b.classList.remove('mesa-seleccionada');
+                });
+                // Seleccionar esta
+                this.classList.add('mesa-seleccionada');
+                // Actualizar input hidden
+                document.getElementById('mesa_id').value = this.getAttribute('data-numero');
+            });
+        });
+        // Evitar submit sin selección
+        document.querySelector('form').addEventListener('submit', function(e) {
+            if (!document.getElementById('mesa_id').value) {
+                alert('Por favor selecciona una mesa antes de reservar.');
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
-
 </html>
+

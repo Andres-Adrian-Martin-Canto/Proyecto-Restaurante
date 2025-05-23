@@ -71,6 +71,12 @@ body {
     color: #b6c42c;
     font-weight: 700;
 }
+.card-mesa-lista {
+    max-height: 480px;      
+    overflow-y: auto;
+    margin-bottom: 1.2rem;
+    padding-right: 6px;       
+}
 
 .btn-editar {
     width: 90%;
@@ -84,7 +90,6 @@ body {
     border-radius: 18px;
     padding: 8px 0;
     cursor: pointer;
-    transition: background 0.2s;
 }
 
 .btn-editar:hover {

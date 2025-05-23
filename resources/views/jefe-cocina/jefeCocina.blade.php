@@ -21,7 +21,7 @@
     <main>
         <section class="izq">
             <div class="icon">
-                <img src="{{ asset('Imagenes/profile.png') }}" alt="">
+                <img src="{{ asset('Imagenes/JefeCocina/imagen_logo_jefe_cocina.png') }}" alt="">
             </div>
             <p>{{ Auth::user()->name }}</p>
             <form action="{{ route('logout') }}" method="POST" style="display:inline;">
@@ -34,46 +34,47 @@
         </section>
         <div class="card-mesa">
             <h2>Mesa 1</h2>
-            <div class="pedido-item">
-                <span>Sushi x1</span>
-                <select class="status-select">
-                    <option>Listo</option>
-                    <option>En preparación</option>
-                    <option>Cancelado</option>
-                    <option>Pendiente</option>
-                </select>
-            </div>
-            <div class="pedido-item">
-                <span>Ramen x1</span>
-                <select class="status-select">
-                    <option>Listo</option>
-                    <option selected>En preparación</option>
-                    <option>Cancelado</option>
-                    <option>Pendiente</option>
-                </select>
-            </div>
-            <button class="btn-listo">Pedido listo</button>
-        </div>
-
-        <div class="card-mesa">
-            <h2>Mesa 2</h2>
-            <div class="pedido-item">
-                <span>Gyozas x1</span>
-                <select class="status-select">
-                    <option selected>Listo</option>
-                    <option>En preparación</option>
-                    <option>Cancelado</option>
-                    <option>Pendiente</option>
-                </select>
-            </div>
-            <div class="pedido-item">
-                <span>Sushi x1</span>
-                <select class="status-select">
-                    <option>Listo</option>
-                    <option selected>En preparación</option>
-                    <option>Cancelado</option>
-                    <option>Pendiente</option>
-                </select>
+            <div class="pedido-list">
+                <div class="pedido-item">
+                    <span>Sushi x1</span>
+                    <select class="status-select">
+                        <option>Listo</option>
+                        <option selected>Pendiente</option>
+                        <option>Cancelado</option>
+                    </select>
+                </div>
+                <div class="pedido-item">
+                    <span>Sushi x1</span>
+                    <select class="status-select">
+                        <option>Listo</option>
+                        <option selected>Pendiente</option>
+                        <option>Cancelado</option>
+                    </select>
+                </div>
+                <div class="pedido-item">
+                    <span>Sushi x1</span>
+                    <select class="status-select">
+                        <option>Listo</option>
+                        <option selected>Pendiente</option>
+                        <option>Cancelado</option>
+                    </select>
+                </div>
+                <div class="pedido-item">
+                    <span>Sushi x1</span>
+                    <select class="status-select">
+                        <option>Listo</option>
+                        <option selected>Pendiente</option>
+                        <option>Cancelado</option>
+                    </select>
+                </div>
+                <div class="pedido-item">
+                    <span>Sushi x1</span>
+                    <select class="status-select">
+                        <option>Listo</option>
+                        <option selected>Pendiente</option>
+                        <option>Cancelado</option>
+                    </select>
+                </div>
             </div>
             <button class="btn-listo">Pedido listo</button>
         </div>

@@ -8,9 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Mesa extends Model
 {
     use HasFactory;
+
     protected $table = 'mesas';
+
     protected $fillable = [
         'estatus',
-        'num_sillas'
+        'num_sillas',
+        'num_mesa' // <-- Añadido aquí
     ];
 }
+

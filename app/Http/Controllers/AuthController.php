@@ -79,6 +79,7 @@ class AuthController extends Controller
         return view('client.pedidos', compact('ventas'));
     }
 
+
     public function registrar(Request $request)
     {
 
