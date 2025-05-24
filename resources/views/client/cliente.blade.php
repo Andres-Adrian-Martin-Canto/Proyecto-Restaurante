@@ -46,7 +46,7 @@
             @foreach ($productos as $producto)
                 <div class="cell">
                     <div class="cell-bg"
-                        style="background-image: url('{{ asset($producto->imagen) }}');">
+                        style="background-image: url('{{ asset('Imagenes/Cliente/'.$producto->imagen) }}');">
                     </div>
                     <div class="cell-content">
                         <h3>{{ $producto->nombre }} - ${{ $producto->precio }}</h3>
