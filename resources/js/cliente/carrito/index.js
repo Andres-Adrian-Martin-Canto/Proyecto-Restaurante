@@ -1,4 +1,4 @@
-import { agregarAlCarrito, obtenerProductoCarrito, eliminarDelCarrito, disminuirCantidad} from './store/store.carrito';
+import { agregarAlCarrito, obtenerProductoCarrito, eliminarDelCarrito, disminuirCantidad, obtenerCarrito} from './store/store.carrito';
 
 // * Se obtiene el elemento del carrito
 const apartadoCarrito = document.querySelector('.center');
@@ -43,6 +43,7 @@ const botonGuardar = document.querySelector('.checkout');
 botonGuardar.addEventListener('click', function(){
     // !!! FALTA MANDAR A GUARDAR EN LA BASE DE DATOS
     // * LOGICA DE GUARDAR EN LA BASE DE DATOS
+    const carrito = obtenerCarrito();
     // fetch('/guardar-carrito', {
 
 

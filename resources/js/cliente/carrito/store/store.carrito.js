@@ -41,4 +41,9 @@ export const obtenerProductoCarrito = (idProducto) => {
     return [carrito.find(item => item.id === idProducto), carrito.findIndex(item => item.id === idProducto)];
 }
 
+export const obtenerCarrito = () => {
+    return [...carrito];
+}
+
+
 
