@@ -43,6 +43,7 @@ Route::middleware(['auth'])->group(function () {
         // * ruta raiz
         Route::get('/', [ClienteController::class, 'index'])->name('cliente');
         // * RUTA PARA VER PRODUCTOS
+        // !!! PODRIAS CAMBIAR EL CONTROLADOR A PRODUCTO, PRIMERO CREAR EL CONTROLADOR PRODUCTO
         Route::get('/pedidos', [AuthController::class, 'pedidos'])->name('cliente.pedidos');
 
         // * Ruta para reservaciones
@@ -78,7 +79,7 @@ Route::middleware(['auth'])->group(function () {
 
     });
 
-    
+
     // * RUTAS MESERO
     Route::middleware(['ismesero'])->prefix('mesero')->group(function () {
         // * ruta raiz
