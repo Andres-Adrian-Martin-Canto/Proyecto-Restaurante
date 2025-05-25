@@ -323,24 +323,21 @@ button:hover
 }
 
 .botones-horizontal {
-    margin: 1.5rem auto 0 auto; 
+    margin: 0.6rem auto 0.6rem auto; 
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
     justify-content: center;
     align-items: center;
-    background-color: #97cd3d;
-    padding: 0.2rem 0.5rem;      
     border-radius: 12px;
     width: 85%;                    
-    max-width: 650px;              
 }
 
 .form-reservaciones button {
     width: auto; 
     margin: 0;
     padding: 13px 28px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
     color: #fff;

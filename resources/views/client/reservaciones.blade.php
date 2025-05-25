@@ -76,19 +76,10 @@
                 </select>
             </div>
 
-            <div>
-                {{-- Formulario para consultar --}}
-                <form id="form-consultar" method="POST" action="{{ route('cliente.reservaciones.post') }}">
-                    @csrf
-                    <input type="hidden" name="date">
-                    <input type="hidden" name="start_time">
-                    <input type="hidden" name="end_time">
-                    <input type="hidden" name="chart">
-                    <button type="submit">Consultar mesas</button>
-                </form>
+            <div class="botones-horizontal ">
 
                 {{-- Formulario para realizar reservación --}}
-                <form id="form-reservar" method="POST" action="">
+                <form id="form-reservar" method="POST" action="" class="form-reservaciones">
                     @csrf
                     <input type="hidden" name="date">
                     <input type="hidden" name="start_time">
@@ -97,6 +88,16 @@
                     <button type="submit">Reservar</button>
                 </form>
 
+                {{-- Formulario para consultar --}}
+                <form id="form-consultar" method="POST" action="{{ route('cliente.reservaciones.post') }}"
+                    class="form-reservaciones">
+                    @csrf
+                    <input type="hidden" name="date">
+                    <input type="hidden" name="start_time">
+                    <input type="hidden" name="end_time">
+                    <input type="hidden" name="chart">
+                    <button type="submit">Consultar mesas</button>
+                </form>
             </div>
 
 
@@ -117,7 +118,6 @@
 
         <div class="der">
             <div class="grid">
-                // Cambiar el color de la mesa dependiendo del estado
                 @for ($i = 1; $i <= 21; $i++)
                     @if ($i == 10)
                         <div class="mesa mesa-central" data-status="{{ $status[21] ?? 'disponible' }}">21</div>
