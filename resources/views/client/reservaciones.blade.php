@@ -7,8 +7,7 @@
     <!--Titulo--------------------------------------------------------------------------------------------------------------------->
     <title>Reservaciones</title>
     <!--Css------------------------------------------------------------------------------------------------------------------------>
-    @vite(['resources/css/reserva.css'])
-    @vite(['resources/css/global.css'])
+    @vite(['resources/css/reserva.css', 'resources/css/global.css', 'resources/js/cliente/reservacion/index.js'])
     <!--Favicon-------------------------------------------------------------------------------------------------------------------->
     <link rel="icon" href="{{ asset('Imagenes/icono.png') }}" type="image/x-icon">
 
@@ -32,14 +31,24 @@
                     <span>Regresar</span>
                 </a>
             </header>
+
+            {{-- ** Desde aqui para abajo --}}
             <div class="select">
-                <label for="start" onclick="document.getElementById('start').showPicker()">Inicio</label>
-                <input type="datetime-local" name="start" id="start" required>
+                <label for="date" onclick="document.getElementById('date').showPicker()">Fecha</label>
+                <input type="date" name="date" id="date" required>
             </div>
             <div class="select">
-                <label for="end" onclick="document.getElementById('end').showPicker()">Finalización</label>
-                <input type="datetime-local" name="end" id="end" required>
+                <label for="start_time" onclick="document.getElementById('start_time').showPicker()">Hora de
+                    inicio</label>
+                <input class="horaInicial" type="time" name="start_time" id="start_time" required>
             </div>
+            <div class="select">
+                <label for="end_time" onclick="document.getElementById('end_time').showPicker()">Hora de
+                    finalización</label>
+                <input class="horaFinal" type="time" name="end_time" id="end_time" disabled required>
+            </div>
+            {{-- ** Fin --}}
+
             <div class="select">
                 <label for="chart" onclick="document.getElementById('chart').showPicker()">Mesa</label>
                 <select name="chart" id="chart">
@@ -68,6 +77,7 @@
             </div>
 
             <button type="submit">Realizar reservación</button>
+            <button type="submit">Consultar reservaciones</button>
 
             <div class="leyenda">
                 <div class="color-box blue"></div>
@@ -85,55 +95,16 @@
 
         <div class="der">
             <div class="grid">
-                <div class="mesa mesa1">1</div>
-                <div class="mesa">2</div>
-                <div class="mesa">3</div>
-                <div class="mesa">4</div>
-                <div class="mesa">5</div>
-                <div class="mesa">6</div>
-                <div class="mesa">7</div>
-                <div class="mesa">8</div>
-                <div class="mesa">9</div>
-                <div class="mesa mesa-central">21</div>
-                <div class="mesa">10</div>
-                <div class="mesa">11</div>
-                <div class="mesa">12</div>
-                <div class="mesa">13</div>
-                <div class="mesa">14</div>
-                <div class="mesa">15</div>
-                <div class="mesa">16</div>
-                <div class="mesa">17</div>
-                <div class="mesa">18</div>
-                <div class="mesa">19</div>
-                <div class="mesa">20</div>
+                @for ($i = 1; $i <= 21; $i++)
+                    @if ($i == 10)
+                        <div class="mesa mesa-central" data-status="{{ $status[21] ?? 'disponible' }}">21</div>
+                    @else
+                        <div class="mesa" data-status="{{ $status[$i] ?? 'disponible' }}">{{ $i <= 9 ? $i : $i - 1 }}</div>
+                    @endif
+                @endfor
             </div>
         </div>
     </main>
-
-    <script>
-        document.querySelectorAll('.mesa').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                // Ignorar la central o las no disponibles
-                if (btn.classList.contains('mesa-central') || btn.classList.contains('no-disponible'))
-                    return;
-                // Quitar selección previa
-                document.querySelectorAll('.mesa').forEach(function(b) {
-                    b.classList.remove('mesa-seleccionada');
-                });
-                // Seleccionar esta
-                this.classList.add('mesa-seleccionada');
-                // Actualizar input hidden
-                document.getElementById('mesa_id').value = this.getAttribute('data-numero');
-            });
-        });
-        // Evitar submit sin selección
-        document.querySelector('form').addEventListener('submit', function(e) {
-            if (!document.getElementById('mesa_id').value) {
-                alert('Por favor selecciona una mesa antes de reservar.');
-                e.preventDefault();
-            }
-        });
-    </script>
 </body>
-</html>
 
+</html>

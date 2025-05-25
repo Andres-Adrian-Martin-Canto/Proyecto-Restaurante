@@ -38,7 +38,7 @@ main
 .header-pedidos {
     display: flex;
     align-items: center;
-    gap: 7rem; 
+    gap: 7rem;
     margin: auto;
 }
 
@@ -130,7 +130,7 @@ main
 }
 
 /* INPUT DATETIME */
-.select input[type="datetime-local"], #chart
+.select input, #chart
 {
     width: 60%;
     height: 100%;
