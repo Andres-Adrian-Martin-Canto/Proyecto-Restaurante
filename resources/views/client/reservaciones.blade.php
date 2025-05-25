@@ -76,8 +76,14 @@
                 </select>
             </div>
 
-            <button type="submit">Realizar reservación</button>
-            <button type="submit">Consultar reservaciones</button>
+            <form class="form-reservaciones" method="POST" action="#">
+                @csrf
+                <div class="botones-horizontal">
+                    <button type="submit" name="accion" value="realizar">Realizar reservación</button>
+                    <button type="submit" name="accion" value="consultar">Consultar reservaciones</button>
+                </div>
+            </form>
+
 
             <div class="leyenda">
                 <div class="color-box blue"></div>
@@ -99,7 +105,8 @@
                     @if ($i == 10)
                         <div class="mesa mesa-central" data-status="{{ $status[21] ?? 'disponible' }}">21</div>
                     @else
-                        <div class="mesa" data-status="{{ $status[$i] ?? 'disponible' }}">{{ $i <= 9 ? $i : $i - 1 }}</div>
+                        <div class="mesa" data-status="{{ $status[$i] ?? 'disponible' }}">{{ $i <= 9 ? $i : $i - 1 }}
+                        </div>
                     @endif
                 @endfor
             </div>
