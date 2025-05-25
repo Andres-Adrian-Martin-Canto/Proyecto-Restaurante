@@ -86,17 +86,25 @@ main
 }
 
   /* ==========     CENTRO     ========== */
-.center
-{
+.center {
     width: 57%;
     padding: 1.5rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); 
     gap: 1rem;
+    max-height: 45rem;   
+    overflow-y: auto;
+    background: transparent;
+    overflow-y: auto;
+    scrollbar-width: thin;  
+    scrollbar-color: #a4c3b2 #e9f5f2; 
 }
 
-.cell{
+.center::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.cell {
     position: relative;
     background-color: #a4c3b2;
     color: #fff;
@@ -108,17 +116,17 @@ main
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    min-height: 210px;
     transition: transform 0.3s ease-in-out;
+    box-shadow: 0 2px 8px rgba(91,136,112,0.08);
 }
 
-.cell:hover
-{
+.cell:hover {
     transform: scale(1.05);
     cursor: pointer;
 }
 
-.cell::before
-{
+.cell::before {
     content: "Añadir";
     position: absolute;
     top: 0; left: 0;
@@ -134,13 +142,11 @@ main
     transition: opacity 0.3s ease-in-out;
 }
 
-.cell:hover::before
-{
+.cell:hover::before {
     opacity: 1;
 }
 
-.cell .cell-bg
-{
+.cell .cell-bg {
     width: 100%;
     height: 50%;
     background-position: center;
@@ -148,28 +154,14 @@ main
     background-repeat: no-repeat;
 }
 
-/* Celda con imágenes dinámicas */
-.cell:nth-of-type(1) .cell-bg { background-image: url("/public/Imagenes/Cliente/sushi.jpg"); }
-.cell:nth-of-type(2) .cell-bg { background-image: url("/public/Imagenes/Cliente/gyoza.jpg"); }
-.cell:nth-of-type(3) .cell-bg { background-image: url("/public/Imagenes/Cliente/ramen.jpg"); }
-.cell:nth-of-type(4) .cell-bg { background-image: url("/public/Imagenes/Cliente/udon.jpg"); }
-.cell:nth-of-type(5) .cell-bg { background-image: url("/public/Imagenes/Cliente/tonkatsu.jpg"); }
-.cell:nth-of-type(6) .cell-bg { background-image: url("/public/Imagenes/Cliente/takoyaki.jpg"); }
-.cell:nth-of-type(7) .cell-bg { background-image: url("/public/Imagenes/Cliente/teriyaki.jpg"); }
-.cell:nth-of-type(8) .cell-bg { background-image: url("/public/Imagenes/Cliente/tempura.jpg"); }
-.cell:nth-of-type(9) .cell-bg { background-image: url("/public/Imagenes/Cliente/omurice.jpg"); }
-
-
-.cell-content
-{
+.cell-content {
     width: 100%;
     height: 50%;
     padding: 10px;
     text-align: center;
 }
 
-.cell-content h3
-{
+.cell-content h3 {
     margin: 0;
     font-size: 1.2rem;
     font-weight: 500;
@@ -177,13 +169,13 @@ main
     text-shadow: 1px 1px 1px #294435;
 }
 
-.cell-content p
-{
+.cell-content p {
     margin: 0;
     font-size: 1rem;
     font-weight: 500;
     color: #3b5044;
 }
+
 
   /* ==========     DERECHA     ========== */
 .der

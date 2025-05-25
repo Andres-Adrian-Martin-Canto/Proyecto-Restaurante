@@ -22,7 +22,6 @@ apartadoCarrito.addEventListener('click', function(event){
 
 listaCarrito.addEventListener('click', function(event){
     console.log(event.target.tagName);
-    // !! CAMBIAR O CHECARLO
     if (event.target.tagName !== 'BUTTON' && event.target.tagName !== 'IMG') return;
     const textoBoton = event.target.textContent;
     const idProducto = event.target.closest('[data-producto-id]').getAttribute('data-producto-id');
@@ -40,13 +39,30 @@ listaCarrito.addEventListener('click', function(event){
 
 // * Evento para mandar a guardar a la base de datos
 const botonGuardar = document.querySelector('.checkout');
-botonGuardar.addEventListener('click', function(){
-    // !!! FALTA MANDAR A GUARDAR EN LA BASE DE DATOS
-    // * LOGICA DE GUARDAR EN LA BASE DE DATOS
+botonGuardar.addEventListener('click', function() {
     const carrito = obtenerCarrito();
-    // fetch('/guardar-carrito', {
-
-
+    fetch('/cliente/comanda', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content 
+        },
+        body: JSON.stringify({
+            productos: carrito
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            alert('¡Pedido realizado correctamente!');
+            // Limpia carrito o recarga la página
+            location.reload();
+        } else {
+            alert('Hubo un error al guardar el pedido.');
+        }
+    })
+    .catch(() => alert('Error de red al intentar guardar el pedido'));
 });
+
 
 

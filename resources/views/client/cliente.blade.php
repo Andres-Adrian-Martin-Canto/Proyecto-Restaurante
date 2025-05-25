@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Titulo--------------------------------------------------------------------------------------------------------------------->
     <title>Cliente</title>
@@ -40,8 +41,8 @@
                 <img src="{{ asset('Imagenes/Cliente/delivery.png') }}" alt="">
                 <p>Pedidos</p>
             </a>
-
         </section>
+
         <section class="center">
             @foreach ($productos as $producto)
                 <div class="cell" data-id="{{ $producto->id }}">
@@ -54,8 +55,8 @@
                     </div>
                 </div>
             @endforeach
-
         </section>
+
         <section class="der">
             <h3>Mi orden</h3>
             <div class="order-list">

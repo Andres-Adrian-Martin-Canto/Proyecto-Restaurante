@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ClienteControllerPedidos;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -43,8 +44,10 @@ Route::middleware(['auth'])->group(function () {
         // * ruta raiz
         Route::get('/', [ClienteController::class, 'index'])->name('cliente');
         // * RUTA PARA VER PRODUCTOS
-        // !!! PODRIAS CAMBIAR EL CONTROLADOR A PRODUCTO, PRIMERO CREAR EL CONTROLADOR PRODUCTO
-        Route::get('/pedidos', [AuthController::class, 'pedidos'])->name('cliente.pedidos');
+        
+        Route::get('/pedidos', [ClienteControllerPedidos::class, 'pedidos'])->name('cliente.pedidos');
+        //Ruta para guardar los pedidos en la base de datos. 
+        Route::post('/comanda', [ClienteController::class, 'guardarComanda'])->name('cliente.guardarComanda');
 
         // * Ruta para reservaciones
         Route::get('/reservaciones', function () {

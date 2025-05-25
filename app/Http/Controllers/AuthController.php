@@ -72,14 +72,6 @@ class AuthController extends Controller
     }
 
 
-    public function pedidos()
-    {
-        $user = Auth::user();
-        $ventas = $user->ventas()->with(['detalles.producto'])->orderBy('fecha', 'desc')->get();
-        return view('client.pedidos', compact('ventas'));
-    }
-
-
     public function registrar(Request $request)
     {
 
