@@ -66,7 +66,7 @@
                 <p>Total</p>
                 <p id="total-carrito">$ 0.00</p>
             </div>
-            <button class="checkout">Checkout</button>
+            <button class="checkout">Finalizar pedido</button>
         </section>
     </main>
 </body>

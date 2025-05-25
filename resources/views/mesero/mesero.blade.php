@@ -38,74 +38,6 @@
             </a>
         </section>
         <section class="center">
-            {{-- @foreach ($productos as $producto)
-                <div class="cell">
-                    <div class="cell-bg" style="background-image: url('{{ asset($producto->imagen) }}');">
-                    </div>
-                    <div class="cell-content">
-                        <h3>{{ $producto->nombre }} - ${{ $producto->precio }}</h3>
-                        <p>{{ $producto->descripcion }}</p>
-                    </div>
-                </div>
-            @endforeach
-
-            {{--
-            <div class="cell">
-                <div class="cell-bg"> <!--Aquí solo es para una imágen de fondo--> </div>
-                <div class="cell-content">
-                    <h3>Ramen - $180.00</h3>
-                    <p>Sopa de fideos con caldo rico y toppings como huevo, carne o alga</p>
-
-                </div>
-            </div>
-            <div class="cell">
-                <div class="cell-bg"> <!--Aquí solo es para una imágen de fondo--> </div>
-                <div class="cell-content">
-                    <h3>Udon - $160.00</h3>
-                    <p>Fideos gruesos en caldo suave con carne, tempura o vegetales</p>
-
-                </div>
-            </div>
-            <div class="cell">
-                <div class="cell-bg"> <!--Aquí solo es para una imágen de fondo--> </div>
-                <div class="cell-content">
-                    <h3>Tonkatsu - $170.00</h3>
-                    <p>Chuleta de cerdo empanizada y crujiente, acompañada de arroz</p>
-
-                </div>
-            </div>
-            <div class="cell">
-                <div class="cell-bg"> <!--Aquí solo es para una imágen de fondo--> </div>
-                <div class="cell-content">
-                    <h3>Takoyaki - $120.00</h3>
-                    <p>Bolitas de masa rellenas de pulpo, cubiertas con salsas</p>
-
-                </div>
-            </div>
-            <div class="cell">
-                <div class="cell-bg"> <!--Aquí solo es para una imágen de fondo--> </div>
-                <div class="cell-content">
-                    <h3>Teriyaki - $160.00</h3>
-                    <p>Carne glaseada en salsa dulce de soya con arroz y vegetales</p>
-
-                </div>
-            </div>
-            <div class="cell">
-                <div class="cell-bg"> <!--Aquí solo es para una imágen de fondo--> </div>
-                <div class="cell-content">
-                    <h3>Tempura - $140.00</h3>
-                    <p>Camarones fritos con una capa crujiente ligera</p>
-
-                </div>
-            </div>
-            <div class="cell">
-                <div class="cell-bg"> <!--Aquí solo es para una imágen de fondo--> </div>
-                <div class="cell-content">
-                    <h3>Omurice - $130.00</h3>
-                    <p>Tortilla de huevo rellena de arroz frito con salsa de tomate</p>
-
-                </div>
-            </div> --}}
         </section>
         <section class="der">
             <h3>Mi orden</h3>
@@ -125,54 +57,19 @@
                     reloj.textContent = `${horas}:${minutos} ${ampm}`;
                 }
                 setInterval(mostrarHora, 1000);
-                mostrarHora(); 
+                mostrarHora();
             </script>
+            <div class="mesa-select">
+                <img src="{{ asset('Imagenes/Mesero/mesa.png') }}" alt="" class="icono-mesa">
+                <select id="mesa-seleccionada">
+                    @for ($i = 1; $i <= 21; $i++)
+                        <option value="{{ $i }}">Mesa {{ $i }}</option>
+                    @endfor
+                </select>
+            </div>
 
             <div class="order-list">
-                {{-- <div class="order-item">
-                    <div class="info">
-                        <p>Sushi</p>
-                        <div>
-                            <button>−</button>
-                            <button>+</button>
-                            <span>x1</span>
-                        </div>
-                    </div>
-                    <p class="price">$ 450.00</p>
-                    <button class="delete">
-                        <img src="{{ asset('Imagenes/Mesero/trash.png') }}" alt="">
-                    </button>
-                </div>
 
-                <div class="order-item">
-                    <div class="info">
-                        <p>Gyozas</p>
-                        <div>
-                            <button>−</button>
-                            <button>+</button>
-                            <span>x1</span>
-                        </div>
-                    </div>
-                    <p class="price">$ 150.00</p>
-                    <button class="delete">
-                        <img src="{{ asset('Imagenes/Mesero/trash.png') }}" alt="">
-                    </button>
-                </div>
-
-                <div class="order-item">
-                    <div class="info">
-                        <p>Ramen</p>
-                        <div>
-                            <button>−</button>
-                            <button>+</button>
-                            <span>x2</span>
-                        </div>
-                    </div>
-                    <p class="price">$ 100.00</p>
-                    <button class="delete">
-                        <img src="{{ asset('Imagenes/Mesero/trash.png') }}" alt="">
-                    </button>
-                </div> --}}
             </div>
 
             <div class="total">
@@ -180,7 +77,7 @@
                 <p>$ 450.00</p>
             </div>
 
-            <button class="checkout">Checkout</button>
+            <button class="checkout">Finalizar pedido</button>
         </section>
     </main>
 </body>

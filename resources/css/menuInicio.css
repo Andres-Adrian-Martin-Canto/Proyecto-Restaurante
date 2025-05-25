@@ -408,3 +408,29 @@ main
     stroke-linejoin: round;
 }
 
+.mesa-select {
+    display: flex;
+    align-items: center;
+    background: #adc8bc; 
+    border-radius: 13px;
+    padding: 10px 16px;
+    margin: 12px 0 16px 0;
+    width: 90%;
+}
+
+.icono-mesa {
+    width: 2.3rem;
+    margin-right: 12px;
+}
+.mesa-select select {
+    border: none;
+    background: transparent;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    color: #314d42;
+    outline: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
