@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Cliente;
 use App\Models\Comanda;
 use App\Models\DetalleComanda;
+use App\Models\Mesa;
+use App\Models\Reservacion;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class ClienteController extends Controller
@@ -55,15 +58,43 @@ class ClienteController extends Controller
 
     public function getReservaciones(Request $request)
     {
+        // !!!!!!!!! FALTA TERMINARLO
         // Accede a los datos enviados por el formulario
         $datos = $request->all();
-        // Aqui hacer la consulta a la base de datos para saber las mesas disponibles
-        // y retornar la vista con los datos.
+
+        // Ejemplo de cómo obtener campos individuales:
+        $fecha = $request->input('date');
+        $horaInicio = $request->input('start_time');
+        $mesa_id = $request->input('chart');
+
+        // Combina la fecha y la hora:
+        $fechaHora = $fecha . ' ' . $horaInicio . ':00';
+
+        // Busca si existe alguna reservación con EXACTAMENTE esa fecha y hora para esa mesa
+        // Calcula la hora de fin sumando 2 horas a la hora de inicio
+        $fechaHoraFin = date('Y-m-d H:i:s', strtotime($fechaHora . ' +2 hours'));
+
+        // Busca si existe alguna reservación para esa mesa donde el rango de horas se traslapa
+        $reservacionOcupada = DB::table('reservaciones')
+            ->where('mesa_id', $mesa_id)
+            ->where(function ($query) use ($fechaHora, $fechaHoraFin) {
+                $query->whereBetween('fecha_reservacion', [$fechaHora, $fechaHoraFin])
+                    ->orWhere(function ($q) use ($fechaHora, $fechaHoraFin) {
+                        $q->where('fecha_reservacion', '<', $fechaHora)
+                            ->whereRaw("DATE_ADD(fecha_reservacion, INTERVAL 2 HOUR) > ?", [$fechaHora]);
+                    });
+            })
+            ->exists();
+
+        if ($reservacionOcupada) {
+            Log::info("La mesa esta ocupada en el rango de horas solicitado.");
+        }
+
+
 
 
         // Retorna la vista con los datos
         // return view('client.reservaciones', ['datos' => $datos]);
-        Log::info("message", $datos);
 
     }
 }

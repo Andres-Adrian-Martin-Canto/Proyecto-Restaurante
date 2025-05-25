@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Titulo--------------------------------------------------------------------------------------------------------------------->
     <title>Mesero</title>
     <!--Css------------------------------------------------------------------------------------------------------------------------>
-    @vite(['resources/css/menuInicio.css', 'resources/js/cliente/carrito-compra.js', 'resources/css/global.css'])
+    @vite(['resources/css/menuInicio.css', 'resources/js/mesero/carrito/index.js', 'resources/js/mesero/reloj/index.js',  'resources/css/global.css'])
     <!--Favicon-------------------------------------------------------------------------------------------------------------------->
     <link rel="icon" href="{{ asset('Imagenes/icono.png') }}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,6 +39,17 @@
             </a>
         </section>
         <section class="center">
+            @foreach ($productos as $producto)
+                <div class="cell" data-id="{{ $producto->id }}">
+                    <div class="cell-bg"
+                        style="background-image: url('{{ asset($producto->imagen)}}');">
+                    </div>
+                    <div class="cell-content">
+                        <h3>{{ $producto->nombre }} - ${{ $producto->precio }}</h3>
+                        <p>{{ $producto->descripcion }}</p>
+                    </div>
+                </div>
+            @endforeach
         </section>
         <section class="der">
             <h3>Mi orden</h3>
@@ -45,20 +57,6 @@
                 <img src="{{ asset('Imagenes/Mesero/clock.png') }}" alt="">
                 <p id="reloj-hora">--:-- --</p>
             </div>
-            <script>
-                function mostrarHora() {
-                    const reloj = document.getElementById('reloj-hora');
-                    if (!reloj) return;
-                    const ahora = new Date();
-                    let horas = ahora.getHours();
-                    const minutos = ahora.getMinutes().toString().padStart(2, '0');
-                    const ampm = horas >= 12 ? 'pm' : 'am';
-                    horas = horas % 12 || 12;
-                    reloj.textContent = `${horas}:${minutos} ${ampm}`;
-                }
-                setInterval(mostrarHora, 1000);
-                mostrarHora();
-            </script>
             <div class="mesa-select">
                 <img src="{{ asset('Imagenes/Mesero/mesa.png') }}" alt="" class="icono-mesa">
                 <select id="mesa-seleccionada">
@@ -74,7 +72,7 @@
 
             <div class="total">
                 <p>Total</p>
-                <p>$ 450.00</p>
+                <p id="total-carrito">$ 0.00</p>
             </div>
 
             <button class="checkout">Finalizar pedido</button>

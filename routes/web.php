@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ClienteControllerPedidos;
+use App\Http\Controllers\jefe_cocinaController;
+use App\Http\Controllers\MeseroController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -76,9 +78,7 @@ Route::middleware(['auth'])->group(function () {
     // * RUTAS JEFE COCINA
     Route::middleware(['isjefe_cocina'])->prefix('cocina')->group(function () {
         // * ruta raiz
-        Route::get('/', function () {
-            return view('jefe-cocina.jefeCocina');
-        })->name('jefe_cocina');
+        Route::get('/', [jefe_cocinaController::class, 'index'])->name('jefe_cocina');
         // * Agregar las de mas rutas de cocina
 
     });
@@ -87,9 +87,8 @@ Route::middleware(['auth'])->group(function () {
     // * RUTAS MESERO
     Route::middleware(['ismesero'])->prefix('mesero')->group(function () {
         // * ruta raiz
-        Route::get('/', function () {
-            return view('mesero.mesero');
-        })->name('mesero');
+        Route::get('/', [MeseroController::class, 'index'])->name('mesero');
+        Route::post('/registrarPedido', [MeseroController::class, 'registrarPedido'])->name('mesero.registrarPedido');
         // * Agregar las de mas rutas del mesero
 
         // RUTA PARA LA VISTA DE COMANDAS
