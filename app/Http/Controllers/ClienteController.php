@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Cliente;
 use App\Models\Comanda;
 use App\Models\DetalleComanda;
-
+use Illuminate\Support\Facades\Log;
 
 class ClienteController extends Controller
 {
@@ -35,9 +35,9 @@ class ClienteController extends Controller
         // Crea la comanda
         $comanda = \App\Models\Comanda::create([
             'fecha' => now(),
-            'mesa_id' => 22, 
+            'mesa_id' => 22,
             'user_id' => $user->id,
-            'estado_pedido_id' => 1, 
+            'estado_pedido_id' => 1,
         ]);
 
         // Inserta los detalles
@@ -50,5 +50,20 @@ class ClienteController extends Controller
         }
 
         return response()->json(['success' => true]);
+    }
+
+
+    public function getReservaciones(Request $request)
+    {
+        // Accede a los datos enviados por el formulario
+        $datos = $request->all();
+        // Aqui hacer la consulta a la base de datos para saber las mesas disponibles
+        // y retornar la vista con los datos.
+
+
+        // Retorna la vista con los datos
+        // return view('client.reservaciones', ['datos' => $datos]);
+        Log::info("message", $datos);
+
     }
 }

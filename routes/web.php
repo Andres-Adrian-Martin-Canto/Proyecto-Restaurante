@@ -44,10 +44,11 @@ Route::middleware(['auth'])->group(function () {
         // * ruta raiz
         Route::get('/', [ClienteController::class, 'index'])->name('cliente');
         // * RUTA PARA VER PRODUCTOS
-        
+
         Route::get('/pedidos', [ClienteControllerPedidos::class, 'pedidos'])->name('cliente.pedidos');
-        //Ruta para guardar los pedidos en la base de datos. 
+        //Ruta para guardar los pedidos en la base de datos.
         Route::post('/comanda', [ClienteController::class, 'guardarComanda'])->name('cliente.guardarComanda');
+        Route::post('/reservaciones', [ClienteController::class, 'getReservaciones'])->name('cliente.reservaciones.post');
 
         // * Ruta para reservaciones
         Route::get('/reservaciones', function () {

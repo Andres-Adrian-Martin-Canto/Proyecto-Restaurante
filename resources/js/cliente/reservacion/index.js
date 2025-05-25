@@ -45,3 +45,17 @@ horaInicio.addEventListener('change', () => {
     horaFinal.value = horaFinalStr;
 });
 
+contenedorFechas.addEventListener('change',  () => {
+    copiarDatos('form-consultar');
+    copiarDatos('form-reservar');
+});
+
+const copiarDatos = (formId) => {
+    const form = document.getElementById(formId);
+    form.querySelector('[name="date"]').value = document.getElementById('date').value;
+    form.querySelector('[name="start_time"]').value = document.getElementById('start_time').value;
+    form.querySelector('[name="end_time"]').value = document.getElementById('end_time').value;
+    form.querySelector('[name="chart"]').value = document.getElementById('chart').value;
+}
+
+

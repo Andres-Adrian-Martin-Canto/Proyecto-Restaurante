@@ -76,13 +76,29 @@
                 </select>
             </div>
 
-            <form class="form-reservaciones" method="POST" action="#">
-                @csrf
-                <div class="botones-horizontal">
-                    <button type="submit" name="accion" value="realizar">Realizar reservación</button>
-                    <button type="submit" name="accion" value="consultar">Consultar reservaciones</button>
-                </div>
-            </form>
+            <div>
+                {{-- Formulario para consultar --}}
+                <form id="form-consultar" method="POST" action="{{ route('cliente.reservaciones.post') }}">
+                    @csrf
+                    <input type="hidden" name="date">
+                    <input type="hidden" name="start_time">
+                    <input type="hidden" name="end_time">
+                    <input type="hidden" name="chart">
+                    <button type="submit">Consultar mesas</button>
+                </form>
+
+                {{-- Formulario para realizar reservación --}}
+                <form id="form-reservar" method="POST" action="">
+                    @csrf
+                    <input type="hidden" name="date">
+                    <input type="hidden" name="start_time">
+                    <input type="hidden" name="end_time">
+                    <input type="hidden" name="chart">
+                    <button type="submit">Reservar</button>
+                </form>
+
+            </div>
+
 
 
             <div class="leyenda">
@@ -101,11 +117,13 @@
 
         <div class="der">
             <div class="grid">
+                // Cambiar el color de la mesa dependiendo del estado
                 @for ($i = 1; $i <= 21; $i++)
                     @if ($i == 10)
                         <div class="mesa mesa-central" data-status="{{ $status[21] ?? 'disponible' }}">21</div>
                     @else
-                        <div class="mesa" data-status="{{ $status[$i] ?? 'disponible' }}">{{ $i <= 9 ? $i : $i - 1 }}
+                        <div class="mesa" data-status="{{ $status[$i] ?? 'disponible' }}">
+                            {{ $i <= 9 ? $i : $i - 1 }}
                         </div>
                     @endif
                 @endfor
