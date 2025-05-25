@@ -21,19 +21,17 @@ apartadoCarrito.addEventListener('click', function(event){
 });
 
 listaCarrito.addEventListener('click', function(event){
-    console.log(event.target.tagName);
     if (event.target.tagName !== 'BUTTON' && event.target.tagName !== 'IMG') return;
-    const textoBoton = event.target.textContent;
+    const textoBoton = event.target.textContent.trim();
     const idProducto = event.target.closest('[data-producto-id]').getAttribute('data-producto-id');
     const producto = obtenerProductoCarrito(idProducto);
-    if (!textoBoton) {
+    if (textoBoton === '') {
         eliminarDelCarrito(producto);
     } else if(textoBoton === '+'){
         agregarAlCarrito(idProducto);
     }else{
         disminuirCantidad(idProducto);
     }
-    console.log(textoBoton);
 });
 
 
@@ -45,7 +43,7 @@ botonGuardar.addEventListener('click', function() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content 
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
         },
         body: JSON.stringify({
             productos: carrito
