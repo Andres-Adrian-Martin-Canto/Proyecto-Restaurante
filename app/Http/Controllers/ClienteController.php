@@ -102,28 +102,45 @@ class ClienteController extends Controller
 
     public function guardarReservacion(Request $request)
     {
-        // Validar los datos recibidos
         $request->validate([
             'date' => 'required|date',
             'chart' => 'required|numeric',
             'start_time' => 'required'
         ]);
 
-        // Combina fecha y hora para la reservación
-        $fechaHora = $request->input('date') . ' ' . $request->input('start_time') . ':00';
+        // Combina fecha y hora de inicio
+        $fechaHoraInicio = $request->input('date') . ' ' . $request->input('start_time') . ':00';
+        $fechaHoraFin = date('Y-m-d H:i:s', strtotime($fechaHoraInicio . ' +2 hours'));
 
-        // Intenta crear la reservación
+        // Buscar si hay un traslape en la base de datos
+        $existeTraslape = \App\Models\Reservacion::where('mesa_id', $request->input('chart'))
+            ->where(function ($query) use ($fechaHoraInicio, $fechaHoraFin) {
+                // Reservación existente: [inicio_existente, fin_existente]
+                // Nueva reservación: [fechaHoraInicio, fechaHoraFin]
+                // Se traslapan si: inicio < fin_nueva && fin_existente > inicio_nueva
+                $query->where('fecha_reservacion', '<', $fechaHoraFin)
+                    ->whereRaw("DATE_ADD(fecha_reservacion, INTERVAL 2 HOUR) > ?", [$fechaHoraInicio]);
+            })
+            ->exists();
+
+        if ($existeTraslape) {
+            // Devuelve error
+            return response()->json([
+                'success' => false,
+                'message' => '¡Esa mesa ya está reservada en ese horario o traslapa con otra reservación!'
+            ]);
+        }
+
+        // Si no hay traslape, crea la reservación
         $reservacion = \App\Models\Reservacion::create([
-            'fecha_reservacion' => $fechaHora,
+            'fecha_reservacion' => $fechaHoraInicio,
             'user_id' => auth()->id(),
             'mesa_id' => $request->input('chart')
         ]);
 
         if ($reservacion) {
-            // ✅ Exito
             return response()->json(['success' => true]);
         } else {
-            // ❌ Error al guardar
             return response()->json(['success' => false, 'message' => 'No se pudo guardar la reservación.']);
         }
     }

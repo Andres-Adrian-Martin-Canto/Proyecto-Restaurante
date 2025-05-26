@@ -110,17 +110,6 @@
                     <button type="submit">Reservar</button>
                 </form>
 
-
-                {{-- Formulario para consultar --}}
-                <form id="form-consultar" method="POST" action="{{ route('cliente.reservaciones.guardar') }}"
-                    class="form-reservaciones">
-                    @csrf
-                    <input type="hidden" name="date">
-                    <input type="hidden" name="start_time">
-                    <input type="hidden" name="end_time">
-                    <input type="hidden" name="chart">
-                    <button type="submit">Consultar </button>
-                </form>
             </div>
 
 
