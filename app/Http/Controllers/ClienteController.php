@@ -99,4 +99,32 @@ class ClienteController extends Controller
         // return view('client.reservaciones', ['datos' => $datos]);
 
     }
+
+    public function guardarReservacion(Request $request)
+    {
+        // Validar los datos recibidos
+        $request->validate([
+            'date' => 'required|date',
+            'chart' => 'required|numeric',
+            'start_time' => 'required'
+        ]);
+
+        // Combina fecha y hora para la reservación
+        $fechaHora = $request->input('date') . ' ' . $request->input('start_time') . ':00';
+
+        // Intenta crear la reservación
+        $reservacion = \App\Models\Reservacion::create([
+            'fecha_reservacion' => $fechaHora,
+            'user_id' => auth()->id(),
+            'mesa_id' => $request->input('chart')
+        ]);
+
+        if ($reservacion) {
+            // ✅ Exito
+            return response()->json(['success' => true]);
+        } else {
+            // ❌ Error al guardar
+            return response()->json(['success' => false, 'message' => 'No se pudo guardar la reservación.']);
+        }
+    }
 }

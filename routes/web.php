@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ClienteControllerPedidos;
 use App\Http\Controllers\jefe_cocinaController;
+use App\Http\Controllers\ReportesController;
 use App\Http\Controllers\MeseroController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -63,8 +64,8 @@ Route::middleware(['auth'])->group(function () {
 
 
         // * Agregar las de mas rutas del cliente
-
-
+        Route::post('/cliente/reservaciones/guardar', [ClienteController::class, 'guardarReservacion'])
+            ->name('cliente.reservaciones.guardar');
     });
 
     // * Rutas ADMIN
@@ -74,8 +75,8 @@ Route::middleware(['auth'])->group(function () {
             return view('admin.admin');
         })->name('admin');
         // * Agregar las demas rutas del admin
-
-
+        //Ruta para generar reportes
+        Route::post('/reporte/exportar', [ReportesController::class, 'exportar'])->name('reporte.exportar');
     });
 
 

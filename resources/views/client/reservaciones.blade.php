@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Titulo--------------------------------------------------------------------------------------------------------------------->
     <title>Reservaciones</title>
     <!--Css------------------------------------------------------------------------------------------------------------------------>
-    @vite(['resources/css/reserva.css', 'resources/css/global.css', 'resources/js/cliente/reservacion/index.js'])
+    @vite(['resources/css/reserva.css', 'resources/css/global.css', 'resources/js/cliente/reservacion/index.js', 'resources/js/cliente/reservacion/reservacion.js'])
     <!--Favicon-------------------------------------------------------------------------------------------------------------------->
     <link rel="icon" href="{{ asset('Imagenes/icono.png') }}" type="image/x-icon">
 
@@ -19,6 +20,24 @@
 </head>
 
 <body>
+    @if (session('success'))
+        <script>
+            alert("{{ session('success') }}");
+        </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            alert("{{ session('error') }}");
+        </script>
+    @endif
+
+    {{-- Para errores de validación --}}
+    @if ($errors->any())
+        <script>
+            alert("Por favor revisa los datos. Faltan campos o hay errores.");
+        </script>
+    @endif
     <main>
         <div class="izq">
             <header class="header-pedidos">
@@ -50,6 +69,8 @@
             {{-- ** Fin --}}
 
             <div class="select">
+
+
                 <label for="chart" onclick="document.getElementById('chart').showPicker()">Mesa</label>
                 <select name="chart" id="chart">
                     <option value="1">1</option>
@@ -79,7 +100,8 @@
             <div class="botones-horizontal ">
 
                 {{-- Formulario para realizar reservación --}}
-                <form id="form-reservar" method="POST" action="" class="form-reservaciones">
+                <form id="form-reservar" method="POST" action="{{ route('cliente.reservaciones.guardar') }}"
+                    class="form-reservaciones">
                     @csrf
                     <input type="hidden" name="date">
                     <input type="hidden" name="start_time">
@@ -88,15 +110,16 @@
                     <button type="submit">Reservar</button>
                 </form>
 
+
                 {{-- Formulario para consultar --}}
-                <form id="form-consultar" method="POST" action="{{ route('cliente.reservaciones.post') }}"
+                <form id="form-consultar" method="POST" action="{{ route('cliente.reservaciones.guardar') }}"
                     class="form-reservaciones">
                     @csrf
                     <input type="hidden" name="date">
                     <input type="hidden" name="start_time">
                     <input type="hidden" name="end_time">
                     <input type="hidden" name="chart">
-                    <button type="submit">Consultar mesas</button>
+                    <button type="submit">Consultar </button>
                 </form>
             </div>
 

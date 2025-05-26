@@ -14,4 +14,12 @@ class Reservacion extends Model
         'user_id',
         'mesa_id'
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+    public function mesa()
+    {
+        return $this->belongsTo(Mesa::class, 'mesa_id');
+    }
 }
