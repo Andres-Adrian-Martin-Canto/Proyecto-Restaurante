@@ -1,5 +1,6 @@
 <?php
 
+use App\Exports\UsuariosExport;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ClienteControllerPedidos;
@@ -7,6 +8,7 @@ use App\Http\Controllers\jefe_cocinaController;
 use App\Http\Controllers\MeseroController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Maatwebsite\Excel\Facades\Excel;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +36,9 @@ Route::get('/registrar', function () {
 
 Route::post('/registrar', [AuthController::class, 'registrar'])->name('register');
 
-
+Route::get('/exportar-usuarios', function () {
+    return Excel::download(new UsuariosExport, 'usuarios.xlsx');
+});
 // TODO: rutas de los roles
 
 // * RUTAS ADMINISTADOR
