@@ -101,6 +101,7 @@ class MeseroController extends Controller
         $comanda = Comanda::find($comanda_id);
         $comanda->estado_pedido_id = 4;
         $comanda->save();
+        // !!! Agregar a modelo venta y detalle venta
         return redirect()->back();
     }
 }
