@@ -74,7 +74,6 @@ class MeseroController extends Controller
                 $arregloInformacion[$detalle->comanda_id] = [
                     'id' => $detalle->comanda_id,
                     'nombreMesa' => $mesaNombre,
-                    'cantidad_producto' => $detalle->cantidad_producto,
                     'productos' => [],
                     'total' => 0, // Inicializa el total de la comanda
                     'status' => $statusDescripcion,

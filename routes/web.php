@@ -79,6 +79,7 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['isjefe_cocina'])->prefix('cocina')->group(function () {
         // * ruta raiz
         Route::get('/', [jefe_cocinaController::class, 'index'])->name('jefe_cocina');
+        Route::post('/actualizarEstadoComanda', [jefe_cocinaController::class, 'actualizarEstadoComanda'])->name('jefe_cocina.actualizarEstadoComanda');
         // * Agregar las de mas rutas de cocina
 
     });
