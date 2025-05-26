@@ -15,4 +15,21 @@ class Comanda extends Model
         'user_id',
         'estado_pedido_id'
     ];
+
+    // Relación con la tabla detalles_comandas
+    public function detallesComanda()
+    {
+        return $this->hasMany(DetalleComanda::class, 'comanda_id');
+    }
+    // Relación con la tabla usuarios
+    public function usuario()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    // relacion de estado_pedido
+    public function estadoPedido()
+    {
+        return $this->belongsTo(Estado_pedido::class, 'estado_pedido_id');
+    }
 }

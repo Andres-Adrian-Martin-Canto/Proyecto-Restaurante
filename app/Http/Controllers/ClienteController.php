@@ -23,6 +23,8 @@ class ClienteController extends Controller
 
         return view('client.cliente', ['productos' => $productos]);
     }
+
+    // * Guarda la comanda en la base de datos
     public function guardarComanda(Request $request)
     {
         // Validación simple
@@ -36,7 +38,7 @@ class ClienteController extends Controller
         }
 
         // Crea la comanda
-        $comanda = \App\Models\Comanda::create([
+        $comanda = Comanda::create([
             'fecha' => now(),
             'mesa_id' => 22,
             'user_id' => $user->id,
@@ -45,7 +47,7 @@ class ClienteController extends Controller
 
         // Inserta los detalles
         foreach ($request->productos as $producto) {
-            \App\Models\DetalleComanda::create([
+            DetalleComanda::create([
                 'cantidad_producto' => $producto['cantidad'],
                 'producto_id' => $producto['id'],
                 'comanda_id' => $comanda->id

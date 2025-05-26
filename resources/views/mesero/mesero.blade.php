@@ -33,7 +33,7 @@
                     <p>Cerrar sesión</p>
                 </button>
             </form>
-            <a href="{{ route('mesero.comandas') }}" class="boton">
+            <a href="{{ route('mesero.verComandasMesero') }}" class="boton">
                 <img src="{{ asset('Imagenes/Mesero/comandas.png') }}" alt="">
                 <p>Comandas</p>
             </a>

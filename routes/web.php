@@ -90,11 +90,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [MeseroController::class, 'index'])->name('mesero');
         Route::post('/registrarPedido', [MeseroController::class, 'registrarPedido'])->name('mesero.registrarPedido');
         // * Agregar las de mas rutas del mesero
-
         // RUTA PARA LA VISTA DE COMANDAS
-        Route::get('/comandas', function () {
-            return view('mesero.comandas');
-        })->name('mesero.comandas');
+        Route::get('/comandas', [MeseroController::class, 'verComandasMesero'])->name('mesero.verComandasMesero');
+        // POST para cambiar el estado de la comanda
+        Route::post('/cambiarEstadoComanda', [MeseroController::class, 'cambiarEstadoComanda'])->name('mesero.cambiarEstadoComanda');
     });
 
 

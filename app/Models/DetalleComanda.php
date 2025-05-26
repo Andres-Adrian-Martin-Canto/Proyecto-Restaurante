@@ -14,5 +14,16 @@ class DetalleComanda  extends Model
         'producto_id',
         'comanda_id'
     ];
+
+    // Relación con la tabla productos
+    public function producto()
+    {
+        return $this->belongsTo(Producto::class, 'producto_id');
+    }
+    // Relación con la tabla comanda
+    public function comanda()
+    {
+        return $this->belongsTo(Comanda::class, 'comanda_id');
+    }
 }
 

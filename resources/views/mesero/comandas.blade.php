@@ -24,7 +24,6 @@
                 <img src="{{ asset('Imagenes/Mesero/imagen_perfil_mesero.png') }}" alt="">
             </div>
             <p>{{ Auth::user()->name }}</p>
-
             <a href="{{ route('mesero') }}" class="boton2">
                 <svg viewBox="0 0 40 40" class="arrow-icon">
                     <circle cx="20" cy="20" r="18" />
@@ -32,32 +31,32 @@
                 </svg>
                 <span>Regresar</span>
             </a>
-
         </section>
-        <div class="card-mesa">
-            <h3>Mesa 1</h3>
-            <div class="card-mesa-lista">
-                <div class="card-producto">
-                    <span>Sushi x1</span>
-                    <span class="precio">$450.00</span>
+        @foreach ($arregloInformacion as $item)
+            <div class="card-mesa">
+                <h3>{{ $item['nombreMesa'] }}</h3>
+                <div class="card-mesa-lista">
+                    @foreach ($item['productos'] as $producto)
+                        <div class="card-producto">
+                            <span>{{ $producto['producto_nombre'] }} x{{ $producto['cantidad_producto'] }}</span>
+                            <span class="precio">${{ number_format($producto['producto_total'], 2) }}</span>
+                        </div>
+                    @endforeach
+                    <div class="card-total card-total-rojo">
+                        Total: <span>${{ number_format($item['total'], 2) }}</span>
+                    </div>
+                    <div class="card-total card-total-rojo">
+                        Estado: <span>{{ $item['status'] }}</span>
+                    </div>
                 </div>
-                                <div class="card-producto">
-                    <span>Sushi x1</span>
-                    <span class="precio">$450.00</span>
-                </div>
-                                <div class="card-producto">
-                    <span>Sushi x1</span>
-                    <span class="precio">$450.00</span>
-                </div>
-                <div class="card-total card-total-rojo">
-                    Total: <span>$450.00</span>
-                </div>
+                <form action="{{ route('mesero.cambiarEstadoComanda') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="comanda_id" value="{{ $item['id'] }}">
+                    <button type="submit" class="btn-editar">Entregado</button>
+                </form>
+
             </div>
-            <button class="btn-editar">Editar</button>
-        </div>
-
-
+        @endforeach
     </main>
 </body>
-
 </html>
